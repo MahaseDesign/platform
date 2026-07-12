@@ -3263,23 +3263,20 @@ async function doLogin() {
   const btn = document.getElementById('btn-login');
   btn.disabled = true; btn.textContent = 'Signing in...';
 
-  try {
-    const hash = await sha256(password);
-    const students = await fetchStudents();
-    const student = students.find(s => s.username === username && s.passwordHash === hash);
+  const hash = await sha256(password);
+  const students = await fetchStudents();
+  const student = students.find(s => s.username === username && s.passwordHash === hash);
 
-    if (!student) {
-      showAlert('login-error', 'Email or password incorrect.'); return;
-    }
-
-    STATE.user = student;
-    localStorage.setItem('ks3cs_session', JSON.stringify({ userId: student.userId }));
-    afterLogin();
-  } catch(e) {
-    showAlert('login-error', 'Login failed. Please check your email and password.');
-  } finally {
+  if (!student) {
+    showAlert('login-error', 'Email or password incorrect.');
     btn.disabled = false; btn.textContent = 'Sign In →';
+    return;
   }
+
+  STATE.user = student;
+  localStorage.setItem('ks3cs_session', JSON.stringify({ userId: student.userId }));
+  btn.disabled = false; btn.textContent = 'Sign In →';
+  afterLogin();
 }
 
 async function doRegister() {
@@ -3308,33 +3305,30 @@ async function doRegister() {
     showAlert('reg-error', 'Class code not recognised. Check with your teacher.'); return;
   }
 
-  try {
-    const hash = await sha256(password);
-    const students = await fetchStudents();
+  // All operations are now localStorage — no network calls, no catch needed
+  const hash = await sha256(password);
+  const students = await fetchStudents();
 
-    if (students.find(s => s.username === username)) {
-      showAlert('reg-error', 'That username is already taken. Please choose another.'); return;
-    }
-
-    const newStudent = {
-      userId: uuid(),
-      username,
-      passwordHash: hash,
-      yearGroup,
-      classCode,
-      registeredAt: new Date().toISOString(),
-      scenarios: {},
-    };
-
-    students.push(newStudent);
-    await saveStudents(students);
-
-    STATE.user = newStudent;
-    localStorage.setItem('ks3cs_session', JSON.stringify({ userId: newStudent.userId }));
-    afterLogin();
-  } catch(e) {
-    showAlert('reg-error', 'Registration failed. Please try again.');
+  if (students.find(s => s.username === username)) {
+    showAlert('reg-error', 'That email is already registered. Please sign in instead.'); return;
   }
+
+  const newStudent = {
+    userId: uuid(),
+    username,
+    passwordHash: hash,
+    yearGroup,
+    classCode,
+    registeredAt: new Date().toISOString(),
+    scenarios: {},
+  };
+
+  students.push(newStudent);
+  saveStudents(students); // synchronous localStorage — no await needed
+
+  STATE.user = newStudent;
+  localStorage.setItem('ks3cs_session', JSON.stringify({ userId: newStudent.userId }));
+  afterLogin();
 }
 
 function afterLogin() {
