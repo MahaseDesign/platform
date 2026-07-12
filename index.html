@@ -3214,6 +3214,10 @@ function closeModal() {
   document.getElementById('modal-confirm').classList.remove('open');
 }
 
+
+/* ─── SAFE STRING HELPER ────────────────────────────────────────── */
+function safeStr(v, max) { return String(v||'').slice(0, max||9999); }
+
 /* ─── LOCAL STORAGE BACKEND ─────────────────────────────────────── */
 /* Replaces JSONBin — works on school networks with no external calls */
 const LS_KEY = 'cslh_db';
@@ -3510,7 +3514,7 @@ function _renderHubGrid() {
       onkeydown="if(event.key==='Enter') openScenarioIntro('${s.id}')">
       <div class="sc-meta">${yearBadge}${statusBadge}</div>
       <div class="sc-title">${s.title}</div>
-      <div class="sc-context">${(s.subtitle||s.context||s.description||"").substring(0,130)}</div>
+      <div class="sc-context">${(s.subtitle||s.context||s.description||s.title||"").slice(0,130)}</div>
       ${progressHtml}
       <div class="sc-footer">
         <div class="sc-stats">
@@ -3856,7 +3860,7 @@ function renderReview() {
     if (t.type === 'multichoice') {
       try { preview = JSON.parse(raw).join(', ') || '(no answer)'; } catch { preview = raw; }
     } else {
-      preview = raw.substring(0,80) + (raw.length > 80 ? '...' : '') || '(no answer)';
+      preview = (raw||"").slice(0,80) + ((raw||"").length > 80 ? '...' : '') || '(no answer)';
     }
     const done = sd.taskStatuses?.[t.id] === 'complete';
     return `<div class="review-item">
