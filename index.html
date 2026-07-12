@@ -5945,7 +5945,14 @@ function openFullscreenPresentation(slides, scenarioId, lessonNum) {
 
   var blob = new Blob([pageHtml], {type: 'text/html'});
   var url  = URL.createObjectURL(blob);
-  window.open(url, '_blank');
+  var a = document.createElement('a');
+  a.href = url;
+  a.target = '_blank';
+  a.rel = 'noopener';
+  a.style.display = 'none';
+  document.body.appendChild(a);
+  a.click();
+  setTimeout(function(){ document.body.removeChild(a); URL.revokeObjectURL(url); }, 5000);
 }
 
 function escH(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
