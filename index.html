@@ -2382,7 +2382,7 @@ body.teacher-theme .stuck-col { background: rgba(210,153,34,0.12) !important; }
             </div>
             <div class="form-group" style="margin-bottom:0">
               <label>Class Code</label>
-              <input type="text" id="reg-classcode" placeholder="e.g. CBA7A" style="text-transform:uppercase">
+              <input type="text" id="reg-classcode" placeholder="e.g. 7A or 8B" style="text-transform:uppercase">
             </div>
           </div>
           <button class="btn btn-primary btn-full btn-lg" style="margin-top:16px" onclick="doRegister()">
@@ -2756,6 +2756,7 @@ body.teacher-theme .stuck-col { background: rgba(210,153,34,0.12) !important; }
     <!-- Dashboard Tabs -->
     <div class="dash-tabs">
       <button class="dash-tab active" onclick="switchDashTab('results')">📊 Results</button>
+      <button class="dash-tab" onclick="switchDashTab('students')">👥 Students</button>
       <button class="dash-tab" onclick="switchDashTab('board')">🖥 Board View</button>
       <button class="dash-tab" onclick="switchDashTab('classes')">🏫 Class Codes</button>
       <button class="dash-tab" onclick="switchDashTab('present')">📽 Present</button>
@@ -2784,6 +2785,27 @@ body.teacher-theme .stuck-col { background: rgba(210,153,34,0.12) !important; }
           <tbody id="dashboard-tbody"></tbody>
         </table>
       </div>
+    </div>
+
+    <!-- TAB: STUDENTS -->
+    <div class="dash-panel" id="panel-students">
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-bottom:16px;flex-wrap:wrap;gap:10px">
+        <div>
+          <div class="card-title" style="margin-bottom:4px">👥 Student Accounts</div>
+          <div class="card-sub">Edit class/year group or remove student accounts.</div>
+        </div>
+        <div style="display:flex;gap:8px;flex-wrap:wrap">
+          <input id="stu-search" type="text" placeholder="Search by name or class…" oninput="renderStudentManager()" style="width:200px">
+          <select id="stu-filter-year" onchange="renderStudentManager()" style="width:120px">
+            <option value="">All Years</option>
+            <option value="Y7">Year 7</option>
+            <option value="Y8">Year 8</option>
+            <option value="Y9">Year 9</option>
+          </select>
+          <button class="btn btn-danger btn-sm" onclick="deleteAllStudents()">🗑 Delete All</button>
+        </div>
+      </div>
+      <div id="student-manager-wrap" style="overflow-x:auto"></div>
     </div>
 
     <!-- TAB: BOARD VIEW -->
@@ -3300,10 +3322,7 @@ async function doRegister() {
   if (password.length < 6) {
     showAlert('reg-error', 'Password must be at least 6 characters.'); return;
   }
-  const liveCodes = await fetchClassCodes();
-  if (!liveCodes.map(c=>c.toUpperCase()).includes(classCode)) {
-    showAlert('reg-error', 'Class code not recognised. Check with your teacher.'); return;
-  }
+  // Class code is stored as-is — teacher can see all classes in dashboard
 
   // All operations are now localStorage — no network calls, no catch needed
   const hash = await sha256(password);
@@ -4243,7 +4262,7 @@ function loadAccessibility() {
 function switchDashTab(tab) {
   document.querySelectorAll('.dash-tab').forEach((t,i) => {
     t.classList.toggle('active',
-      (i===0&&tab==='results')||(i===1&&tab==='classes')||(i===2&&tab==='present')||(i===3&&tab==='settings'));
+      (i===0&&tab==='results')||(i===1&&tab==='students')||(i===2&&tab==='board')||(i===3&&tab==='classes')||(i===4&&tab==='present')||(i===5&&tab==='settings'));
   });
   document.querySelectorAll('.dash-panel').forEach(p => p.classList.remove('active'));
   document.getElementById(`panel-${tab}`).classList.add('active');
@@ -4259,6 +4278,7 @@ function switchDashTab(tab) {
   }
   if (tab === 'settings') loadSettingsInfo();
   if (tab === 'board')    { populateBoardClassFilter(); renderBoardView(); }
+  if (tab === 'students') renderStudentManager();
 }
 
 function loadSettingsInfo() {
@@ -5691,6 +5711,105 @@ function exitQuiz() {
 
 
 /* ─── BOARD VIEW ─────────────────────────────────────────────────── */
+
+/* ─── STUDENT MANAGER ───────────────────────────────────────────── */
+function renderStudentManager() {
+  const wrap      = document.getElementById('student-manager-wrap');
+  const search    = (document.getElementById('stu-search')?.value || '').toLowerCase();
+  const yearFilter= document.getElementById('stu-filter-year')?.value || '';
+  if (!wrap) return;
+
+  let students = lsGet().students || [];
+  if (yearFilter) students = students.filter(s => s.yearGroup === yearFilter);
+  if (search)     students = students.filter(s =>
+    s.username.toLowerCase().includes(search) ||
+    (s.classCode||'').toLowerCase().includes(search)
+  );
+
+  if (!students.length) {
+    wrap.innerHTML = '<div style="color:var(--text3);text-align:center;padding:24px">No students found.</div>';
+    return;
+  }
+
+  wrap.innerHTML = `
+    <table style="width:100%;border-collapse:collapse;font-size:0.83rem">
+      <thead>
+        <tr style="border-bottom:2px solid var(--border)">
+          <th style="text-align:left;padding:8px 10px;color:var(--text3);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em">Email / Username</th>
+          <th style="text-align:center;padding:8px 6px;color:var(--text3);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em">Year</th>
+          <th style="text-align:center;padding:8px 6px;color:var(--text3);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em">Class</th>
+          <th style="text-align:center;padding:8px 6px;color:var(--text3);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em">Registered</th>
+          <th style="text-align:center;padding:8px 6px;color:var(--text3);font-size:0.72rem;text-transform:uppercase;letter-spacing:0.05em">Actions</th>
+        </tr>
+      </thead>
+      <tbody>
+        ${students.map((s, ri) => `
+          <tr id="stu-row-${s.userId}" style="border-bottom:1px solid var(--border2);background:${ri%2?'rgba(255,255,255,0.02)':'transparent'}">
+            <td style="padding:8px 10px;max-width:240px;overflow:hidden;text-overflow:ellipsis;white-space:nowrap" title="${escHtml(s.username)}">${escHtml(s.username)}</td>
+            <td style="text-align:center;padding:6px">
+              <select onchange="editStudentField('${s.userId}','yearGroup',this.value)" style="font-size:0.8rem;padding:3px 6px;border-radius:4px;border:1px solid var(--border);background:var(--surface2);color:var(--text)">
+                <option value="Y7" ${s.yearGroup==='Y7'?'selected':''}>Y7</option>
+                <option value="Y8" ${s.yearGroup==='Y8'?'selected':''}>Y8</option>
+                <option value="Y9" ${s.yearGroup==='Y9'?'selected':''}>Y9</option>
+              </select>
+            </td>
+            <td style="text-align:center;padding:6px">
+              <input type="text" value="${escHtml(s.classCode||'')}"
+                onchange="editStudentField('${s.userId}','classCode',this.value.toUpperCase())"
+                style="width:70px;font-size:0.8rem;padding:3px 6px;border-radius:4px;border:1px solid var(--border);background:var(--surface2);color:var(--text);text-align:center;text-transform:uppercase">
+            </td>
+            <td style="text-align:center;padding:8px 6px;color:var(--text3);font-size:0.75rem;font-family:var(--mono)">${s.registeredAt ? new Date(s.registeredAt).toLocaleDateString('en-GB') : '—'}</td>
+            <td style="text-align:center;padding:6px">
+              <button onclick="deleteStudent('${s.userId}')"
+                style="background:rgba(248,81,73,0.15);color:#f85149;border:1px solid rgba(248,81,73,0.3);border-radius:4px;padding:4px 10px;font-size:0.78rem;cursor:pointer"
+                onmouseover="this.style.background='rgba(248,81,73,0.3)'" onmouseout="this.style.background='rgba(248,81,73,0.15)'">
+                🗑 Remove
+              </button>
+            </td>
+          </tr>
+        `).join('')}
+      </tbody>
+    </table>
+    <div style="margin-top:10px;font-size:0.75rem;color:var(--text3)">${students.length} student${students.length!==1?'s':''} shown. Year/class changes save instantly.</div>
+  `;
+}
+
+function editStudentField(userId, field, value) {
+  const db = lsGet();
+  const students = db.students || [];
+  const idx = students.findIndex(s => s.userId === userId);
+  if (idx === -1) return;
+  students[idx][field] = value;
+  lsSet({ students });
+  // Show brief save indicator
+  const row = document.getElementById(`stu-row-${userId}`);
+  if (row) {
+    row.style.background = 'rgba(63,185,80,0.1)';
+    setTimeout(() => row.style.background = '', 800);
+  }
+}
+
+function deleteStudent(userId) {
+  const db = lsGet();
+  const students = (db.students || []).filter(s => s.userId !== userId);
+  lsSet({ students });
+  renderStudentManager();
+  // Also refresh dashboard results
+  STATE.allStudents = students;
+  renderDashboard(students);
+}
+
+function deleteAllStudents() {
+  const db = lsGet();
+  const count = (db.students || []).length;
+  if (!count) { alert('No students to delete.'); return; }
+  if (!confirm(`Delete ALL ${count} student accounts? This cannot be undone.`)) return;
+  lsSet({ students: [] });
+  STATE.allStudents = [];
+  renderDashboard([]);
+  renderStudentManager();
+}
+
 function populateBoardClassFilter() {
   const sel = document.getElementById('board-filter-class');
   if (!sel) return;
