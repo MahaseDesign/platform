@@ -1,1741 +1,1743 @@
-[
-  {
-    "id": "scenario_y7_binary",
-    "title": "Binary & Scratch Quiz Project",
-    "subtitle": "Understand binary, then build a quiz in Scratch",
-    "yearGroups": [
-      "Y7"
-    ],
-    "icon": "🧮",
-    "colour": "#1f6feb",
-    "sessions": 12,
-    "estimatedMins": 720,
-    "weeks": [
-      {
-        "weekNum": 1,
-        "label": "L1: What is a computer? Why binary?"
-      },
-      {
-        "weekNum": 2,
-        "label": "L2: Counting in binary (4-bit)"
-      },
-      {
-        "weekNum": 3,
-        "label": "L3: Binary conversions (8-bit)"
-      },
-      {
-        "weekNum": 4,
-        "label": "L4: Introduction to Scratch"
-      },
-      {
-        "weekNum": 5,
-        "label": "L5: Selection"
-      },
-      {
-        "weekNum": 6,
-        "label": "L6: Variables"
-      },
-      {
-        "weekNum": 7,
-        "label": "L7: Input and validation"
-      },
-      {
-        "weekNum": 8,
-        "label": "L8: Designing the quiz"
-      },
-      {
-        "weekNum": 9,
-        "label": "L9: Building the quiz"
-      },
-      {
-        "weekNum": 10,
-        "label": "L10: Enhancing the quiz"
-      },
-      {
-        "weekNum": 11,
-        "label": "L11: Testing and debugging"
-      },
-      {
-        "weekNum": 12,
-        "label": "L12: Assessment"
-      }
-    ],
-    "tasks": [
-      {
-        "id": "y7_l01_t1",
-        "week": 1,
-        "title": "What is a computer?",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 2,
-        "question": "List THREE devices that you think are computers and explain why each one counts as a computer. Think about what makes something a 'computer'.",
-        "placeholder": "Device 1: ... because ...\nDevice 2: ... because ...\nDevice 3: ... because ..."
-      },
-      {
-        "id": "y7_l01_t2",
-        "week": 1,
-        "title": "Binary signals",
-        "difficulty": "core",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "Computers use electrical signals that are either ON or OFF. Which number system uses only two values?",
-        "options": [
-          "Denary (base 10)",
-          "Binary (base 2)",
-          "Hexadecimal (base 16)",
-          "Octal (base 8)"
-        ],
-        "answer": 1,
-        "explanation": "Binary uses only 0 and 1, matching the two states of an electrical switch."
-      },
-      {
-        "id": "y7_l01_t3",
-        "week": 1,
-        "title": "Binary digits",
-        "difficulty": "core",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "In binary, what does the digit 1 represent?",
-        "options": [
-          "The switch is OFF",
-          "The number zero",
-          "The switch is ON",
-          "Nothing at all"
-        ],
-        "answer": 2,
-        "explanation": "1 = ON — the electrical switch is conducting current; 0 = OFF."
-      },
-      {
-        "id": "y7_l01_t4",
-        "week": 1,
-        "title": "Why binary?",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Answer these three questions in full sentences:\n1. What does binary mean?\n2. Why do computers use binary instead of denary?\n3. What does a 1 represent in binary?",
-        "placeholder": "1. Binary means...\n2. Computers use binary because...\n3. A 1 represents..."
-      },
-      {
-        "id": "y7_l01_t5",
-        "week": 1,
-        "title": "Challenge — binary reliability",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Explain why binary is a reliable way for computers to store and process data. Think about the electrical signals inside a computer and what could go wrong with more complex signals.",
-        "placeholder": "Binary is reliable because..."
-      },
-      {
-        "id": "y7_l02_t1",
-        "week": 2,
-        "title": "4-bit place values",
-        "difficulty": "starter",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What are the four place values in a 4-bit binary number, reading left to right?",
-        "options": [
-          "1, 2, 4, 8",
-          "8, 4, 2, 1",
-          "4, 3, 2, 1",
-          "16, 8, 4, 2"
-        ],
-        "answer": 1,
-        "explanation": "Place values double from right to left: 1, 2, 4, 8."
-      },
-      {
-        "id": "y7_l02_t2",
-        "week": 2,
-        "title": "Binary to denary — 4-bit",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert these 4-bit binary numbers to denary. Show your working using place values (8, 4, 2, 1):\n1. 1010\n2. 0111\n3. 1101\n4. 0011\n5. 1001",
-        "placeholder": "1. 1010 = 8+2 = 10\n2. 0111 = ...\n..."
-      },
-      {
-        "id": "y7_l02_t3",
-        "week": 2,
-        "title": "Denary to binary — 4-bit",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert these denary numbers to 4-bit binary. Use the place value columns (8, 4, 2, 1):\n1. 5\n2. 7\n3. 10\n4. 12\n5. 3",
-        "placeholder": "1. 5 = 0101\n2. 7 = ...\n..."
-      },
-      {
-        "id": "y7_l02_t4",
-        "week": 2,
-        "title": "Largest 4-bit number",
-        "difficulty": "core",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What is the largest number you can represent with 4 bits?",
-        "options": [
-          "8",
-          "14",
-          "15",
-          "16"
-        ],
-        "answer": 2,
-        "explanation": "1111 = 8+4+2+1 = 15. There are 16 values (0–15) in 4 bits."
-      },
-      {
-        "id": "y7_l02_t5",
-        "week": 2,
-        "title": "Challenge — convert 13 and 15",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Convert 13 and 15 into 4-bit binary. Show your full working using the place value columns (8, 4, 2, 1).",
-        "placeholder": "13: 8 fits (13-8=5), 4 fits (5-4=1), 2 doesn't fit, 1 fits → 1101\n15: ..."
-      },
-      {
-        "id": "y7_l03_t1",
-        "week": 3,
-        "title": "8-bit place values",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Write out ALL EIGHT place values of an 8-bit binary number from left to right.\nAlso answer: Why do we need 8 bits instead of 4 bits?",
-        "placeholder": "Place values: 128, 64, ...\nWe need 8 bits because..."
-      },
-      {
-        "id": "y7_l03_t2",
-        "week": 3,
-        "title": "Denary to 8-bit binary",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert these denary numbers to 8-bit binary (use place values 128,64,32,16,8,4,2,1):\n1. 25\n2. 40\n3. 100\n4. 150\n5. 200",
-        "placeholder": "1. 25 = 00011001\n2. 40 = ...\n..."
-      },
-      {
-        "id": "y7_l03_t3",
-        "week": 3,
-        "title": "8-bit binary to denary",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert these 8-bit binary numbers to denary:\n1. 01010101\n2. 00011001\n3. 10000001\n4. 00101010\n5. 11110000",
-        "placeholder": "1. 01010101 = 64+16+4+1 = 85\n2. ..."
-      },
-      {
-        "id": "y7_l03_t4",
-        "week": 3,
-        "title": "Maximum 8-bit value",
-        "difficulty": "core",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What is the maximum value that can be stored in 8 bits (1 byte)?",
-        "options": [
-          "128",
-          "200",
-          "254",
-          "255"
-        ],
-        "answer": 3,
-        "explanation": "11111111 = 128+64+32+16+8+4+2+1 = 255."
-      },
-      {
-        "id": "y7_l03_t5",
-        "week": 3,
-        "title": "Challenge — convert 255",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Convert 255 into 8-bit binary using the place value columns. What do you notice about the result? Explain what this tells us about the maximum value of a byte.",
-        "placeholder": "255 in binary = ...\nI notice that..."
-      },
-      {
-        "id": "y7_l04_t1",
-        "week": 4,
-        "title": "What is an algorithm?",
-        "difficulty": "starter",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What is an algorithm?",
-        "options": [
-          "A type of computer",
-          "A precise step-by-step set of instructions",
-          "A Scratch sprite",
-          "A binary number"
-        ],
-        "answer": 1,
-        "explanation": "An algorithm is a precise, ordered set of instructions for solving a problem."
-      },
-      {
-        "id": "y7_l04_t2",
-        "week": 4,
-        "title": "Sequence matters",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Answer these questions about sequence in programming:\n1. What is sequence?\n2. What does a Scratch block do?\n3. Why does the ORDER of blocks matter?",
-        "placeholder": "1. Sequence is...\n2. A Scratch block...\n3. Order matters because..."
-      },
-      {
-        "id": "y7_l04_t3",
-        "week": 4,
-        "title": "Scratch Forever loop",
-        "difficulty": "core",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What does the 'Forever' block do in Scratch?",
-        "options": [
-          "Stops the program",
-          "Runs the blocks inside once",
-          "Repeats the blocks inside endlessly",
-          "Saves the project"
-        ],
-        "answer": 2,
-        "explanation": "The Forever loop repeats its contents continuously until the program is stopped."
-      },
-      {
-        "id": "y7_l04_t4",
-        "week": 4,
-        "title": "Design your own sequence",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Design your own 4-block Scratch sequence. You must include:\n• At least one movement block\n• One 'say' block\n• One sound or wait block\nWrite the blocks in order and explain what your sequence does.",
-        "placeholder": "Block 1: when green flag clicked\nBlock 2: move 10 steps\nBlock 3: ...\nBlock 4: ...\nMy sequence does..."
-      },
-      {
-        "id": "y7_l05_t1",
-        "week": 5,
-        "title": "What is selection?",
-        "difficulty": "starter",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What does selection allow a program to do?",
-        "options": [
-          "Run instructions in order",
-          "Repeat code",
-          "Choose between paths based on a condition",
-          "Store a value"
-        ],
-        "answer": 2,
-        "explanation": "Selection lets a program branch based on whether a condition is true or false."
-      },
-      {
-        "id": "y7_l05_t2",
-        "week": 5,
-        "title": "if/else statements",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Answer these questions about selection:\n1. What happens when an if condition is TRUE?\n2. What happens when an if condition is FALSE?\n3. What is a condition? Give your own example.\n4. What extra does if/else provide compared to just using if?",
-        "placeholder": "1. When true...\n2. When false...\n3. A condition is... Example: ...\n4. if/else also..."
-      },
-      {
-        "id": "y7_l05_t3",
-        "week": 5,
-        "title": "Boolean values",
-        "difficulty": "core",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What is a Boolean value?",
-        "options": [
-          "A number between 0 and 100",
-          "A type of image",
-          "A value that is TRUE or FALSE",
-          "A sprite costume"
-        ],
-        "answer": 2,
-        "explanation": "Boolean values are true or false — used in conditions and if statements."
-      },
-      {
-        "id": "y7_l05_t4",
-        "week": 5,
-        "title": "Write an if/else",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "A quiz asks: 'What is the capital of France?'\nWrite an if/else statement (in pseudocode or Scratch description) that:\n• Checks if the answer equals 'Paris'\n• Says 'Correct! +1 point' if true\n• Says 'Wrong! The answer is Paris' if false\n\nAlso: A quiz has ONLY correct/incorrect. How could you add a HINT outcome if someone is close but wrong?",
-        "placeholder": "If answer = 'Paris' then\n    say 'Correct!'\nelse\n    say 'Wrong!'\n\nTo add a hint..."
-      },
-      {
-        "id": "y7_l06_t1",
-        "week": 6,
-        "title": "What is a variable?",
-        "difficulty": "starter",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What is a variable in programming?",
-        "options": [
-          "A fixed number",
-          "A named container that stores a changing value",
-          "A type of sprite",
-          "An algorithm"
-        ],
-        "answer": 1,
-        "explanation": "A variable is a named box that holds a value that can be read and changed at any time."
-      },
-      {
-        "id": "y7_l06_t2",
-        "week": 6,
-        "title": "Set vs Change",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Explain the difference between 'set' and 'change' in Scratch variables. Then answer:\n1. What is a variable?\n2. Why does a quiz need a score variable?\n3. What happens if you forget to initialise score to 0?",
-        "placeholder": "Set means...\nChange means...\n\n1. A variable is...\n2. A quiz needs score because...\n3. If I forget to initialise..."
-      },
-      {
-        "id": "y7_l06_t3",
-        "week": 6,
-        "title": "Tracing variables",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Trace this Scratch code and write the value of 'score' after EACH step:\n\nStep 1: set score to 0\nStep 2: change score by 1\nStep 3: change score by 1\nStep 4: set score to 0\nStep 5: change score by 1\n\nWrite the value of score after each step:",
-        "placeholder": "After step 1: score = 0\nAfter step 2: score = ...\nAfter step 3: ...\nAfter step 4: ...\nAfter step 5: ..."
-      },
-      {
-        "id": "y7_l06_t4",
-        "week": 6,
-        "title": "Challenge — 3-question score plan",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Plan a 3-question quiz (in Scratch pseudocode) that:\n• Uses 'set' to initialise score to 0 at the start\n• Uses 'change' to update score for each correct answer\n• Shows the final score at the end\n\nWrite out the plan with set/change instructions for all 3 questions.",
-        "placeholder": "Set score to 0\nAsk question 1...\nIf correct: change score by 1\n..."
-      },
-      {
-        "id": "y7_l07_t1",
-        "week": 7,
-        "title": "What is validation?",
-        "difficulty": "starter",
-        "type": "multichoice",
-        "marks": 1,
-        "question": "What does validation do in a program?",
-        "options": [
-          "Makes programs colourful",
-          "Checks that input is acceptable before using it",
-          "Runs the program faster",
-          "Saves data automatically"
-        ],
-        "answer": 1,
-        "explanation": "Validation checks that user input is sensible and acceptable before the program uses it."
-      },
-      {
-        "id": "y7_l07_t2",
-        "week": 7,
-        "title": "Input validation questions",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Answer these questions about input and validation:\n1. Why do we need to validate input?\n2. What does the 'ask and wait' block do in Scratch?\n3. What could happen if input isn't checked or validated?",
-        "placeholder": "1. We validate input because...\n2. Ask and wait...\n3. Without validation..."
-      },
-      {
-        "id": "y7_l07_t3",
-        "week": 7,
-        "title": "Valid or invalid?",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "A program asks: 'How old are you?'\nFor each answer below, say if it is VALID or INVALID and explain why:\n1. 13\n2. -5\n3. hello\n4. 200",
-        "placeholder": "1. 13 — Valid/Invalid because...\n2. -5 — ...\n3. hello — ...\n4. 200 — ..."
-      },
-      {
-        "id": "y7_l07_t4",
-        "week": 7,
-        "title": "Challenge — case-insensitive answers",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "A quiz answer box is case-sensitive, so typing 'Cat' is marked WRONG even though 'cat' is correct.\n\nHow could you change the program so that 'Cat', 'CAT' and 'cat' are ALL accepted as correct? Explain your idea clearly.",
-        "placeholder": "To make the quiz case-insensitive, I could..."
-      },
-      {
-        "id": "y7_l08_t1",
-        "week": 8,
-        "title": "Retrieval starter",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Answer from memory (no notes):\n1. What is an algorithm? (Lesson 4)\n2. What does an if statement check? (Lesson 5)\n3. What is a variable? (Lesson 6)\n4. Why do we validate input? (Lesson 7)",
-        "placeholder": "1. An algorithm is...\n2. An if statement checks...\n3. A variable is...\n4. We validate because..."
-      },
-      {
-        "id": "y7_l08_t2",
-        "week": 8,
-        "title": "Flowchart symbols",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Describe what each flowchart symbol is used for:\n1. Rectangle (process box)\n2. Diamond (decision box)\n3. Oval/rounded rectangle (start/end)\n\nAlso: Why do we plan programs with flowcharts BEFORE writing code?",
-        "placeholder": "1. Rectangle = ...\n2. Diamond = ...\n3. Oval = ...\nWe plan because..."
-      },
-      {
-        "id": "y7_l08_t3",
-        "week": 8,
-        "title": "Plan your quiz question",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Plan ONE quiz question using a flowchart description. Your plan must show:\n• Start\n• Ask the question\n• Get the user's answer\n• Check: is the answer correct?\n• Yes path → add 1 to score, say 'Correct!'\n• No path → say 'Wrong!'\n• Show score\n• End\n\nWrite the steps in order:",
-        "placeholder": "START\n→ Ask 'What is 5 in binary?'\n→ Get answer\n→ Is answer = 0101? ...\n..."
-      },
-      {
-        "id": "y7_l08_t4",
-        "week": 8,
-        "title": "Challenge — two questions",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Sketch out in WORDS how your flowchart would change to include a SECOND question after the first is answered. What stays the same? What changes? What must happen to the score?",
-        "placeholder": "After the first question ends...\nThe second question would...\nThe score needs to..."
-      },
-      {
-        "id": "y7_l09_t1",
-        "week": 9,
-        "title": "Retrieval — key terms",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 4,
-        "question": "In ONE sentence each, define:\n1. Sequence\n2. Selection\n3. Variable\n4. Validation",
-        "placeholder": "1. Sequence: ...\n2. Selection: ...\n3. Variable: ...\n4. Validation: ..."
-      },
-      {
-        "id": "y7_l09_t2",
-        "week": 9,
-        "title": "Trace the quiz code",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "A quiz question is set up as:\n• ask 'What is 5 in binary?'\n• if answer = '0101' then change score by 1, say 'Correct!'\n\nTrace what happens for each of these answers typed by the user:\n1. '0101'\n2. '101'\n3. '5'\n4. '' (blank)",
-        "placeholder": "1. User types 0101: ...\n2. User types 101: ...\n3. User types 5: ...\n4. User types blank: ..."
-      },
-      {
-        "id": "y7_l09_t3",
-        "week": 9,
-        "title": "Build the quiz question",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "List the Scratch blocks you need IN ORDER to build a quiz question that:\n• Validates that the answer box is not blank\n• Checks if the answer is correct\n• Updates score if correct\n• Gives feedback either way",
-        "placeholder": "1. when green flag clicked\n2. set score to 0\n3. ask...\n4. if answer is blank then...\n5. else if answer = ... then...\n..."
-      },
-      {
-        "id": "y7_l09_t4",
-        "week": 9,
-        "title": "Challenge — blank answer validation",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Explain WHY we check if the answer is blank BEFORE checking if it is correct. What problem would occur if we checked for correctness first and the user left the box empty?",
-        "placeholder": "We check for blank first because..."
-      },
-      {
-        "id": "y7_l10_t1",
-        "week": 10,
-        "title": "Why feedback matters",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Your quiz currently says nothing when a user types a WRONG (but not blank) answer.\n1. Why is this a problem for the user?\n2. What is missing from the code to fix it?\n3. Why does feedback make a program feel more finished?",
-        "placeholder": "1. This is a problem because...\n2. What's missing is...\n3. Feedback makes programs feel..."
-      },
-      {
-        "id": "y7_l10_t2",
-        "week": 10,
-        "title": "Types of feedback",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "For each improvement idea, say whether it is a SOUND, VISUAL, or MESSAGE feedback:\n1. Making the sprite flash red when wrong\n2. Playing a fanfare when the user gets a correct answer\n3. Showing 'Correct! Well done!' on screen\n4. Changing the background colour when the score reaches 5",
-        "placeholder": "1. Visual/Sound/Message — ...\n2. ...\n3. ...\n4. ..."
-      },
-      {
-        "id": "y7_l10_t3",
-        "week": 10,
-        "title": "Plan 3 types of feedback",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Your quiz now has THREE possible outcomes: correct, wrong, and blank answer.\nPlan a DIFFERENT piece of feedback (message, sound, or visual) for EACH of the three outcomes:",
-        "placeholder": "Correct → \nWrong → \nBlank → "
-      },
-      {
-        "id": "y7_l10_t4",
-        "week": 10,
-        "title": "Challenge — add feedback",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Describe the code changes needed to add feedback to your quiz for ALL three outcomes (correct, wrong, blank). Write the additions as Scratch pseudocode, showing exactly where each new block goes.",
-        "placeholder": "After 'if answer is blank':\n  say 'Please type an answer!' for 2 seconds\n\nAfter 'if answer = correct' then correct:\n  ...\n\nFor wrong:\n  ..."
-      },
-      {
-        "id": "y7_l11_t1",
-        "week": 11,
-        "title": "Spot the bug",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 2,
-        "question": "This code should add 1 to the score when the answer is correct, but something is wrong:\n\n  if answr = \"8\" then\n    change score by 1\n\n1. What is the bug?\n2. How would you fix it?",
-        "placeholder": "1. The bug is...\n2. Fix: ..."
-      },
-      {
-        "id": "y7_l11_t2",
-        "week": 11,
-        "title": "Types of bugs",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Answer these questions:\n1. What is a bug in a program?\n2. Why do we test with DIFFERENT types of input?\n3. What should you do if a test doesn't give the expected result?",
-        "placeholder": "1. A bug is...\n2. We test different inputs because...\n3. If a test fails, I should..."
-      },
-      {
-        "id": "y7_l11_t3",
-        "week": 11,
-        "title": "Test plan",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Create a test plan for your quiz question. For EACH test below, write:\n• What you expect to happen\n• What actually happened\n\nTests:\n1. Type the correct answer\n2. Type a wrong answer\n3. Leave the box blank\n4. Type the correct answer in CAPITALS\n5. Type a number instead of words",
-        "placeholder": "Test 1 — correct answer:\n  Expected: ...\n  Actual: ...\n\nTest 2 — wrong answer:\n  Expected: ...\n  Actual: ...\n..."
-      },
-      {
-        "id": "y7_l11_t4",
-        "week": 11,
-        "title": "Challenge — debug your project",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Describe a bug you found in your own quiz project:\n1. What was wrong? (describe the unexpected behaviour)\n2. How did you find it? (what test revealed it?)\n3. How did you fix it?\n4. What did you learn from this?",
-        "placeholder": "1. The bug was...\n2. I found it when...\n3. I fixed it by...\n4. I learned..."
-      },
-      {
-        "id": "y7_l12_t1",
-        "week": 12,
-        "title": "Big review — retrieval",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Answer from memory:\n1. What is binary? (Lessons 1–3)\n2. What is an algorithm? (Lesson 4)\n3. What is selection? (Lesson 5)\n4. What is a variable? (Lesson 6)\n5. Why do we validate input? (Lesson 7)",
-        "placeholder": "1. Binary is...\n2. An algorithm is...\n3. Selection is...\n4. A variable is...\n5. We validate because..."
-      },
-      {
-        "id": "y7_l12_t2",
-        "week": 12,
-        "title": "Self-assessment checklist",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Check your Scratch quiz project against each criterion and write YES or NO + one sentence of evidence:\n1. My quiz has at least one working question\n2. My quiz uses a score variable\n3. My quiz validates the input (checks for blank)\n4. My quiz gives feedback for correct and wrong answers",
-        "placeholder": "1. YES — I have a question that asks...\n2. YES/NO — ...\n3. ...\n4. ..."
-      },
-      {
-        "id": "y7_l12_t3",
-        "week": 12,
-        "title": "Reflection",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Reflect on your project:\n1. What part are you most proud of and why?\n2. What was the trickiest part to get working? How did you solve it?\n3. If you had one more lesson, what would you add or improve?",
-        "placeholder": "1. I'm most proud of...\n2. The trickiest part was...\n3. With more time I would..."
-      },
-      {
-        "id": "y7_l12_t4",
-        "week": 12,
-        "title": "Binary + programming link",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Explain how binary and programming combine in your Scratch project. Use ALL THREE of these words in your answer: binary, sequence, selection.\n\nThen convert these as a final check:\n• 42 to 8-bit binary\n• 10110100 to denary",
-        "placeholder": "In my project, binary and programming combine because...\n\n42 in binary = ...\n10110100 in denary = ..."
-      }
-    ]
-  },
-  {
-    "id": "scenario_y8_binary",
-    "title": "Binary Mastery & Python Quiz",
-    "subtitle": "Master binary addition, then build a quiz in Python",
-    "yearGroups": [
-      "Y8"
-    ],
-    "icon": "🐍",
-    "colour": "#238636",
-    "sessions": 12,
-    "estimatedMins": 720,
-    "weeks": [
-      {
-        "weekNum": 1,
-        "label": "L1: Binary Retrieval and Baseline"
-      },
-      {
-        "weekNum": 2,
-        "label": "L2: Securing Binary Conversion (8-bit)"
-      },
-      {
-        "weekNum": 3,
-        "label": "L3: Binary Addition (4-bit)"
-      },
-      {
-        "weekNum": 4,
-        "label": "L4: Binary Addition (8-bit and Problem Solving)"
-      },
-      {
-        "weekNum": 5,
-        "label": "L5: Designing Binary Quiz Questions"
-      },
-      {
-        "weekNum": 6,
-        "label": "L6: Introduction to Python"
-      },
-      {
-        "weekNum": 7,
-        "label": "L7: Variables and Input in Python"
-      },
-      {
-        "weekNum": 8,
-        "label": "L8: Selection in Python"
-      },
-      {
-        "weekNum": 9,
-        "label": "L9: Designing the Python Quiz"
-      },
-      {
-        "weekNum": 10,
-        "label": "L10: Building the Quiz"
-      },
-      {
-        "weekNum": 11,
-        "label": "L11: Improving and Debugging"
-      },
-      {
-        "weekNum": 12,
-        "label": "L12: Assessment and Evaluation"
-      }
-    ],
-    "tasks": [
-      {
-        "id": "y8_l01_t1",
-        "week": 1,
-        "title": "Binary place values recap",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 2,
-        "question": "Fill in the blanks for 8-bit place values:\nThe place value headings for an 8-bit binary number are: 128, 64, 32, ___, 8, 4, ___, 1\n\nAlso: Convert 5, 7 and 10 into binary (you should know these from Year 7).",
-        "placeholder": "Blanks: 16 and 2\n\n5 = ...\n7 = ...\n10 = ..."
-      },
-      {
-        "id": "y8_l01_t2",
-        "week": 1,
-        "title": "4-bit binary to denary",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each 4-bit binary number to denary. Show your place value working:\n1. 1010\n2. 0110\n3. 1111\n4. 0011\n5. 1001",
-        "placeholder": "1. 1010 = 8+2 = 10\n2. 0110 = ...\n..."
-      },
-      {
-        "id": "y8_l01_t3",
-        "week": 1,
-        "title": "8-bit binary to denary",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each 8-bit binary number to denary:\n1. 00010100\n2. 00101101\n3. 01000001\n4. 00011011\n5. 01010101",
-        "placeholder": "1. 00010100 = 16+4 = 20\n2. ..."
-      },
-      {
-        "id": "y8_l01_t4",
-        "week": 1,
-        "title": "Misconception check",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "A friend says: '1010 in binary means one thousand and ten.'\n\nExplain CLEARLY why they are wrong. Use the word 'place value' in your answer and give the correct denary answer with full working.",
-        "placeholder": "My friend is wrong because...\n\nCorrect answer: 1010 = ..."
-      },
-      {
-        "id": "y8_l02_t1",
-        "week": 2,
-        "title": "The conversion method",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 2,
-        "question": "Complete the method for converting denary to binary:\n'When converting denary to binary, if a place value ____ into the number, write a 1 and ____ that value. If it does not fit, write a 0.'\n\nAlso convert: 12, 15 and 20 to binary.",
-        "placeholder": "Missing words: 'fits' and 'subtract'\n\n12 = ...\n15 = ...\n20 = ..."
-      },
-      {
-        "id": "y8_l02_t2",
-        "week": 2,
-        "title": "Denary to 8-bit binary",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each denary number to 8-bit binary (show place value working):\n1. 37\n2. 58\n3. 72\n4. 99\n5. 150",
-        "placeholder": "1. 37: 128? No. 64? No. 32? Yes (37-32=5). 16? No. 8? No. 4? Yes (5-4=1). 2? No. 1? Yes. → 00100101\n2. ..."
-      },
-      {
-        "id": "y8_l02_t3",
-        "week": 2,
-        "title": "8-bit binary to denary",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each 8-bit binary number to denary:\n1. 01010101\n2. 00111100\n3. 01100110\n4. 00001001\n5. 01111111",
-        "placeholder": "1. 01010101 = 64+16+4+1 = 85\n2. ..."
-      },
-      {
-        "id": "y8_l02_t4",
-        "week": 2,
-        "title": "Challenge — check your answer",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Explain how you would CHECK your answer after converting a denary number into binary. (Hint: think about converting back.)\n\nThen: convert 150 to binary AND convert your answer back to denary to verify it.",
-        "placeholder": "To check my answer I would...\n\n150 in binary = ...\nConverting back: ..."
-      },
-      {
-        "id": "y8_l03_t1",
-        "week": 3,
-        "title": "Binary addition rules",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Complete the four binary addition rules:\n• 0 + 0 = ___\n• 0 + 1 = ___\n• 1 + 0 = ___\n• 1 + 1 = ___ (write ___, carry ___)\n\nAlso: Convert 1101 and 10001001 into denary.",
-        "placeholder": "0+0=0, 0+1=1, 1+0=1, 1+1=10 (write 0, carry 1)\n\n1101 = ...\n10001001 = ..."
-      },
-      {
-        "id": "y8_l03_t2",
-        "week": 3,
-        "title": "4-bit addition (no carry)",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Solve each 4-bit binary addition (no carrying needed). Show your column-by-column working:\n1. 0100 + 0011\n2. 0101 + 0010\n3. 1000 + 0111\n4. 0110 + 0001\n5. 1010 + 0100",
-        "placeholder": "1. 0100\n  +0011\n  ────\n  0111\n2. ..."
-      },
-      {
-        "id": "y8_l03_t3",
-        "week": 3,
-        "title": "4-bit addition (with carry)",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Solve each 4-bit binary addition. Show your carries above the columns:\n1. 0101 + 0011\n2. 0111 + 0001\n3. 1001 + 0110\n4. 0110 + 0101\n5. 1111 + 0001",
-        "placeholder": "1.   ¹\n  0101\n +0011\n ────\n 1000\n2. ..."
-      },
-      {
-        "id": "y8_l03_t4",
-        "week": 3,
-        "title": "Challenge — create your own",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Create your OWN 4-bit binary addition problem that REQUIRES carrying. Then solve it, showing all your carries. Finally, verify your answer by converting both input numbers to denary, adding them, and checking you get the same result.",
-        "placeholder": "My question: ____ + ____\n\nBinary working (with carries):\n...\n\nVerification:\n... + ... = ... in denary\nMy binary answer = ... in denary ✓"
-      },
-      {
-        "id": "y8_l04_t1",
-        "week": 4,
-        "title": "8-bit addition setup",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 2,
-        "question": "A 'carry chain' happens when a carry causes ANOTHER carry in the next column.\n\nAlso solve: 1 + 1, 10 + 1, and 101 + 010 (show carries where needed).",
-        "placeholder": "1+1 = 10 (carry 1)\n10+1 = ...\n101+010 = ..."
-      },
-      {
-        "id": "y8_l04_t2",
-        "week": 4,
-        "title": "8-bit binary addition",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Solve each 8-bit binary addition. Show ALL carries:\n1. 00101101 + 00011011\n2. 01001001 + 00110110\n3. 00011111 + 00000001\n4. 01010101 + 00101010\n5. 00110011 + 01001100",
-        "placeholder": "1.  00101101\n  +00011011\n  ─────────\n  01001000\n2. ..."
-      },
-      {
-        "id": "y8_l04_t3",
-        "week": 4,
-        "title": "Spot the error",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Each answer below contains a mistake. Write the CORRECT answer and explain the error:\n1. 0111 + 0001 = 0112\n2. 1010 + 0101 = 1116\n3. 0011 + 0011 = 0122",
-        "placeholder": "1. Correct answer: 1000. Error: 2 is not a valid binary digit...\n2. ...\n3. ..."
-      },
-      {
-        "id": "y8_l04_t4",
-        "week": 4,
-        "title": "Challenge — deliberate error",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Write your OWN 8-bit binary addition question that includes a deliberately WRONG answer. Then explain exactly what mistake was made and what the correct answer should be.",
-        "placeholder": "My question: ____ + ____ = ____ (wrong!)\n\nThe mistake is...\nThe correct answer is..."
-      },
-      {
-        "id": "y8_l05_t1",
-        "week": 5,
-        "title": "What makes a good question?",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Also solve these before starting:\n• 0101 + 0011\n• 1110 + 0001\n\nThen: What makes a good quiz question? What are 'distractors' and why should they be believable (not obviously wrong)?",
-        "placeholder": "0101 + 0011 = ...\n1110 + 0001 = ...\n\nA good question has...\nDistractors are...\nThey should be believable because..."
-      },
-      {
-        "id": "y8_l05_t2",
-        "week": 5,
-        "title": "Evaluate these questions",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "For each question below, explain whether it is a GOOD quiz question and why:\n1. 'Convert 00010111 to denary.'\n2. 'Is binary hard?'\n3. 'Solve 0111 + 0010, or is it easy?'",
-        "placeholder": "1. Good/Bad because...\n2. Good/Bad because...\n3. Good/Bad because..."
-      },
-      {
-        "id": "y8_l05_t3",
-        "week": 5,
-        "title": "Write 5 quiz questions",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Write FIVE of your own binary quiz questions (at least one must be an addition question). For each, include the correct answer:\n1. Question + answer\n2. Question + answer\n3. Question + answer\n4. Question + answer\n5. Question + answer (addition)",
-        "placeholder": "1. What is 01010101 in denary? Answer: 85\n2. ...\n3. ...\n4. ...\n5. ..."
-      },
-      {
-        "id": "y8_l05_t4",
-        "week": 5,
-        "title": "Challenge — write distractors",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Pick ONE of your questions from Task 3 and write THREE believable WRONG answers (distractors) for it. Explain why each distractor is believable — what common mistake would lead a student to choose it?",
-        "placeholder": "My question: ...\nCorrect answer: ...\n\nDistractor 1: ... (believable because a student might...)\nDistractor 2: ...\nDistractor 3: ..."
-      },
-      {
-        "id": "y8_l06_t1",
-        "week": 6,
-        "title": "Scratch vs Python",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "How is Scratch DIFFERENT from text-based coding like Python? List at least FOUR differences.\n\nAlso: Python is case-sensitive. What does this mean? Give an example.",
-        "placeholder": "Differences:\n1. Scratch uses blocks, Python uses...\n2. ...\n3. ...\n4. ...\n\nCase-sensitive means..."
-      },
-      {
-        "id": "y8_l06_t2",
-        "week": 6,
-        "title": "Reading Python code",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "For each line of Python code, state EXACTLY what will be printed or what happens:\n1. print(\"Hello, world!\")\n2. print(2 + 2)\n3. # print(\"This is a comment\")\n4. print(\"5\" + \"5\")",
-        "placeholder": "1. Prints: Hello, world!\n2. Prints: ...\n3. ...\n4. (careful — these are strings!)"
-      },
-      {
-        "id": "y8_l06_t3",
-        "week": 6,
-        "title": "Writing Python code",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Write a line of Python code for each task:\n1. Print the message 'I am learning Python'\n2. Print the result of 10 + 15\n3. Add a comment explaining what your program does",
-        "placeholder": "1. print(\"I am learning Python\")\n2. ...\n3. ..."
-      },
-      {
-        "id": "y8_l06_t4",
-        "week": 6,
-        "title": "Challenge — facts program",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write a short Python program that prints THREE facts about yourself. Above EACH print line, add a comment explaining what that line does.\n\nWrite out the complete program:",
-        "placeholder": "# This prints my name\nprint(\"My name is...\")\n\n# This prints...\nprint(\"...\")\n\n..."
-      },
-      {
-        "id": "y8_l07_t1",
-        "week": 7,
-        "title": "Variables and input",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\nA ___ is a named location in memory that stores data. The ___() function collects information typed by the user.\n\nAlso: What information might a quiz program need to store?",
-        "placeholder": "Blanks: variable, input\n\nA quiz might store..."
-      },
-      {
-        "id": "y8_l07_t2",
-        "week": 7,
-        "title": "Reading Python code",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "For each line of Python code, explain in your own words what it does:\n1. score = 0\n2. name = input(\"What is your name? \")\n3. score = score + 1\n4. age = int(input(\"How old are you? \"))",
-        "placeholder": "1. score = 0 means...\n2. name = input(...) means...\n3. score = score + 1 means...\n4. age = int(input(...)) means... (why int?)"
-      },
-      {
-        "id": "y8_l07_t3",
-        "week": 7,
-        "title": "Writing Python variables",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Write a line of Python code for each task:\n1. Store the number 0 in a variable called score\n2. Ask the user to type their favourite colour and store it in a variable called colour\n3. Increase a variable called score by 1",
-        "placeholder": "1. score = 0\n2. colour = input(...)\n3. score = ..."
-      },
-      {
-        "id": "y8_l07_t4",
-        "week": 7,
-        "title": "Challenge — name and age program",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write a complete Python program that:\n1. Asks the user for their name (store in 'name')\n2. Asks the user for their age (store as an integer in 'age')\n3. Prints: 'Hello [name]! You are [age] years old.'\n\nWrite the full program AND explain why you need int() for age but not for name.",
-        "placeholder": "name = input(\"What is your name? \")\nage = int(input(\"How old are you? \"))\nprint(\"Hello \" + name + \"! You are \" + str(age) + \" years old.\")\n\nI use int() for age because..."
-      },
-      {
-        "id": "y8_l08_t1",
-        "week": 8,
-        "title": "if/elif/else in Python",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\n'The ___ keyword checks a condition. If it is False, Python checks each ___ in order. If none are true, the ___ block runs instead.'\n\nAlso: give an everyday example of a decision you make.",
-        "placeholder": "Blanks: if, elif, else\n\nEveryday decision example..."
-      },
-      {
-        "id": "y8_l08_t2",
-        "week": 8,
-        "title": "Tracing Python selection",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "For each piece of code, state EXACTLY what would be printed:\n\n1. score = 3\n   if score > 5:\n       print(\"High\")\n   else:\n       print(\"Low\")\n\n2. score = 10\n   if score == 10:\n       print(\"Perfect\")\n   elif score > 5:\n       print(\"Good\")",
-        "placeholder": "1. Prints: ...\n2. Prints: ..."
-      },
-      {
-        "id": "y8_l08_t3",
-        "week": 8,
-        "title": "Writing selection in Python",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write Python code for each task:\n1. Check if a variable called age is 13 or more; print 'Teenager' if it is\n2. Write an if/elif/else chain that prints 'A', 'B', or 'Other grade' depending on a variable called mark",
-        "placeholder": "1. if age >= 13:\n       print(\"Teenager\")\n\n2. if mark == \"A\":\n       print(\"A\")\n   elif ..."
-      },
-      {
-        "id": "y8_l08_t4",
-        "week": 8,
-        "title": "Challenge — temperature program",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write a complete Python program that:\n1. Asks the user to enter a temperature (as an integer)\n2. Prints 'Hot' if temperature > 25\n3. Prints 'Warm' if temperature is between 15 and 25 (inclusive)\n4. Prints 'Cold' for anything below 15",
-        "placeholder": "temperature = int(input(\"Enter temperature: \"))\nif temperature > 25:\n    print(\"Hot\")\nelif ...\n    ..."
-      },
-      {
-        "id": "y8_l09_t1",
-        "week": 9,
-        "title": "Pseudocode and flowcharts",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\n'___code is a way of planning a program using plain English instead of exact code. A ___chart uses shapes to show each step visually.'\n\nAlso: what features should a quiz include? Think back to your questions from Lesson 5.",
-        "placeholder": "Blanks: Pseudo, Flow\n\nA quiz should include..."
-      },
-      {
-        "id": "y8_l09_t2",
-        "week": 9,
-        "title": "Reading a pseudocode plan",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Look at this pseudocode plan for a quiz question:\n\n  score = 0\n  ASK 'What is 4 + 4 in binary?'\n  GET answer\n  IF answer is correct THEN\n      score = score + 1\n  PRINT score\n\n1. What does 'ASK ... GET answer' become in Python?\n2. What does 'IF answer is correct THEN' become in Python?\n3. Why is score set to 0 BEFORE the question?\n4. What happens to score if the answer is wrong?",
-        "placeholder": "1. In Python: answer = input(...)\n2. In Python: if answer == '1000':\n3. Because...\n4. Score..."
-      },
-      {
-        "id": "y8_l09_t3",
-        "week": 9,
-        "title": "Plan your Python quiz",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Plan YOUR Python quiz using pseudocode. Include AT LEAST 3 questions. Show:\n• How score is initialised\n• How each question is asked and checked\n• How the final score is displayed",
-        "placeholder": "score = 0\n\nASK 'Question 1...'\nGET answer\nIF answer == 'correct' THEN score = score + 1\n\nASK 'Question 2...'\n...\n\nPRINT 'You scored', score"
-      },
-      {
-        "id": "y8_l09_t4",
-        "week": 9,
-        "title": "Challenge — problem avoided by planning",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Explain ONE specific problem that planning your quiz BEFORE coding helped you avoid. What would have happened if you had started coding without planning?",
-        "placeholder": "Planning helped me avoid...\n\nWithout planning, I might have..."
-      },
-      {
-        "id": "y8_l10_t1",
-        "week": 10,
-        "title": "Building a Python quiz question",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "The result of input() is always a ___. You use ___ inside an if statement to check for an exact match.\n\nTrace this code — what prints for each input:\n  score = 0\n  answer = input('What is 1010 in denary? ')\n  if answer == '10':\n      score = score + 1\n  print(score)\n\nIf you type '10': ___\nIf you type 'ten': ___",
-        "placeholder": "Blanks: string, ==\n\nIf '10': prints 1\nIf 'ten': prints ..."
-      },
-      {
-        "id": "y8_l10_t2",
-        "week": 10,
-        "title": "Build your Python quiz",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Describe the COMPLETE Python quiz you have built. Tick/confirm each requirement:\n1. At least 3 questions, each using input()\n2. Each answer checked using if/elif/else\n3. A score variable that updates correctly\n4. A final message that prints the score\n5. Answers expected as strings (in quotes)\n\nFor each: write YES and describe how yours works, OR NO and what you still need to add.",
-        "placeholder": "1. YES — I have 3 questions: ...\n2. YES — I check answers with: ...\n3. ...\n4. ...\n5. ..."
-      },
-      {
-        "id": "y8_l10_t3",
-        "week": 10,
-        "title": "Answer types matter",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Answer these questions:\n1. How is the user's answer checked in a Python quiz?\n2. Why must the expected answer be written as a string in quotes?\n3. Where in your code does the score get updated?",
-        "placeholder": "1. The answer is checked using...\n2. It must be a string because...\n3. Score updates after..."
-      },
-      {
-        "id": "y8_l10_t4",
-        "week": 10,
-        "title": "Challenge — score-based message",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Add a FINAL MESSAGE to your quiz that changes depending on the user's score. Write the Python code for the end of your quiz that prints:\n• '⭐ Excellent! Full marks!' if score equals the total questions\n• '👍 Good effort!' if score is more than half the total\n• '📚 Keep practising!' otherwise",
-        "placeholder": "if score == 3:  # (or whatever your total is)\n    print('⭐ Excellent! Full marks!')\nelif score >= 2:\n    print('👍 Good effort!')\nelse:\n    print('📚 Keep practising!')"
-      },
-      {
-        "id": "y8_l11_t1",
-        "week": 11,
-        "title": "Syntax vs logic errors",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\nA ___ error breaks Python's rules and stops the program running.\nA ___ error lets the program run but produces the wrong result.\n\nAlso: Have you found any bugs in your quiz so far? Describe one.",
-        "placeholder": "Blanks: syntax, logic\n\nA bug I found: ..."
-      },
-      {
-        "id": "y8_l11_t2",
-        "week": 11,
-        "title": "Identify the error type",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 3,
-        "question": "For each code snippet, say if it is a SYNTAX ERROR or LOGIC ERROR and explain why:\n\n1. if score > 5\n       print('Well done')\n\n2. score = score - 1   # (should be +1)\n\n3. prnit('Hello')",
-        "placeholder": "1. Type: ... Reason: ...\n2. Type: ... Reason: ...\n3. Type: ... Reason: ..."
-      },
-      {
-        "id": "y8_l11_t3",
-        "week": 11,
-        "title": "Debug your quiz",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Test your quiz thoroughly and record what you find:\n1. Bug 1 — what happened? How did you fix it?\n2. Bug 2 — what happened? How did you fix it?\n3. Test with an UNEXPECTED input (e.g. blank, capital letters, number) — what happened?\n4. How can you find errors in your code?\n5. What does a NameError usually mean?",
-        "placeholder": "1. Bug 1: I found that..., fixed by...\n2. Bug 2: ...\n3. Unexpected input: I typed..., the program...\n4. I can find errors by...\n5. NameError means..."
-      },
-      {
-        "id": "y8_l11_t4",
-        "week": 11,
-        "title": "Challenge — prevent future bugs",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Explain ONE strategy you could use in FUTURE projects to prevent a bug you found today. Be specific — refer to the actual bug and explain how your strategy would catch it earlier.",
-        "placeholder": "The bug I found was...\n\nIn future, I will prevent this by...\n\nThis would work because..."
-      },
-      {
-        "id": "y8_l12_t1",
-        "week": 12,
-        "title": "Unit review — key ideas",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 5,
-        "question": "List as many key ideas from this unit as you can. Include at least TWO from binary and TWO from Python programming.",
-        "placeholder": "Binary:\n1. ...\n2. ...\n\nPython:\n1. ...\n2. ...\n\nAlso..."
-      },
-      {
-        "id": "y8_l12_t2",
-        "week": 12,
-        "title": "Success criteria evaluation",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Evaluate your finished Python quiz against each criterion. Write YES or NO, then one sentence of evidence:\n1. At least 3 working questions using input()\n2. Each answer checked correctly with if/elif/else\n3. Score variable that updates after each correct answer\n4. Final message that changes based on score",
-        "placeholder": "1. YES — my quiz has 3 questions: ...\n2. ...\n3. ...\n4. ..."
-      },
-      {
-        "id": "y8_l12_t3",
-        "week": 12,
-        "title": "Reflection and improvements",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Reflect on the whole unit:\n1. What does your program do well?\n2. What was hardest to get working, and how did you solve it?\n3. How confident do you feel converting between binary and denary now?\n4. If you had more time, what would you add or improve?",
-        "placeholder": "1. My program does well at...\n2. The hardest part was...\n3. My confidence level...\n4. With more time I would..."
-      },
-      {
-        "id": "y8_l12_t4",
-        "week": 12,
-        "title": "Challenge — binary meets Python",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Explain how your binary knowledge and Python programming skills were COMBINED in your finished quiz.\n\nAlso complete these as a final mastery check:\n• Convert 01101100 to denary\n• Convert 108 to 8-bit binary\n• Solve: 00110011 + 01001100",
-        "placeholder": "Binary meets Python in my quiz because...\n\nFinal checks:\n01101100 = ...\n108 = ...\n00110011 + 01001100 = ..."
-      }
-    ]
-  },
-  {
-    "id": "scenario_y9_python",
-    "title": "Hexadecimal & Python Subroutines",
-    "subtitle": "Convert binary to hex, then build a Python hex quiz using subroutines",
-    "yearGroups": [
-      "Y9"
-    ],
-    "icon": "⬡",
-    "colour": "#9e6a03",
-    "sessions": 12,
-    "estimatedMins": 720,
-    "weeks": [
-      {
-        "weekNum": 1,
-        "label": "L1: Binary and Binary Addition Retrieval"
-      },
-      {
-        "weekNum": 2,
-        "label": "L2: Introduction to Hexadecimal"
-      },
-      {
-        "weekNum": 3,
-        "label": "L3: Binary to Hexadecimal"
-      },
-      {
-        "weekNum": 4,
-        "label": "L4: Hexadecimal to Binary"
-      },
-      {
-        "weekNum": 5,
-        "label": "L5: RGB Colours"
-      },
-      {
-        "weekNum": 6,
-        "label": "L6: Python Retrieval"
-      },
-      {
-        "weekNum": 7,
-        "label": "L7: Creating Subroutines"
-      },
-      {
-        "weekNum": 8,
-        "label": "L8: Flowchart 1: Number to Hex Digit"
-      },
-      {
-        "weekNum": 9,
-        "label": "L9: Flowchart 2: Hex Digit to Number"
-      },
-      {
-        "weekNum": 10,
-        "label": "L10: MOD and DIV Operators"
-      },
-      {
-        "weekNum": 11,
-        "label": "L11: Flowchart 3: Number to Hex Value"
-      },
-      {
-        "weekNum": 12,
-        "label": "L12: Building the Random Hexadecimal Quiz"
-      }
-    ],
-    "tasks": [
-      {
-        "id": "y9_l01_t1",
-        "week": 1,
-        "title": "Binary retrieval",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Convert to 8-bit binary:\n1. 12\n2. 22\n3. 30\n4. 45\n5. 60",
-        "placeholder": "1. 12 = 00001100\n2. ...\n..."
-      },
-      {
-        "id": "y9_l01_t2",
-        "week": 1,
-        "title": "Binary addition rules",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 2,
-        "question": "Complete the binary addition rules:\n• 0 + 0 = ___\n• 0 + 1 = ___\n• 1 + 1 = ___ (write ___, carry ___)",
-        "placeholder": "0+0=0, 0+1=1, 1+1=10 (write 0, carry 1)"
-      },
-      {
-        "id": "y9_l01_t3",
-        "week": 1,
-        "title": "Binary addition practice",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Solve each binary addition. Show your carrying clearly:\n1. 0101 + 0011\n2. 1001 + 0110\n3. 1111 + 0001\n4. 0110 + 0101\n5. 1010 + 1011",
-        "placeholder": "1.   ¹\n  0101\n +0011\n ────\n 1000\n\n2. ..."
-      },
-      {
-        "id": "y9_l01_t4",
-        "week": 1,
-        "title": "Challenge — why carry?",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Explain why a computer needs to 'carry' during binary addition. How is this SIMILAR to carrying in denary addition? Give a denary example to support your explanation.",
-        "placeholder": "In binary, we carry because...\n\nThis is similar to denary carrying: for example, 9+1=10 in denary — we write 0 and carry 1. In binary..."
-      },
-      {
-        "id": "y9_l02_t1",
-        "week": 2,
-        "title": "What is hexadecimal?",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\nHexadecimal is base ___. It uses digits 0–9 and the letters ___ to ___ to represent the values 10 to 15.\n\nAlso: What happens when we count past 9 in base 10?",
-        "placeholder": "Blanks: 16, A, F\n\nWhen we count past 9 in base 10..."
-      },
-      {
-        "id": "y9_l02_t2",
-        "week": 2,
-        "title": "Hex digits to denary",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each hexadecimal digit to its denary value:\n1. A\n2. C\n3. E\n4. 9\n5. F",
-        "placeholder": "1. A = 10\n2. C = ...\n..."
-      },
-      {
-        "id": "y9_l02_t3",
-        "week": 2,
-        "title": "Denary to hex digits",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each denary value to its hexadecimal digit:\n1. 10\n2. 11\n3. 13\n4. 15\n5. 8",
-        "placeholder": "1. 10 = A\n2. 11 = ...\n..."
-      },
-      {
-        "id": "y9_l02_t4",
-        "week": 2,
-        "title": "Challenge — why use hex?",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Answer these questions:\n1. What do A and F represent in hexadecimal?\n2. Why can hexadecimal not use the digit 'G'?\n3. How many digits does hexadecimal use in total?\n4. Explain why hexadecimal is USEFUL in computing, even though computers only understand binary.",
-        "placeholder": "1. A = ..., F = ...\n2. G can't be used because...\n3. Total digits: ...\n4. Hex is useful because..."
-      },
-      {
-        "id": "y9_l03_t1",
-        "week": 3,
-        "title": "Nibbles",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 2,
-        "question": "Fill in the blanks:\nA byte is made up of ___ bits. A nibble is half of a byte, which is ___ bits.\n\nAlso convert: 1010 and 1111 into denary.",
-        "placeholder": "8 bits, 4 bits\n\n1010 = ...\n1111 = ..."
-      },
-      {
-        "id": "y9_l03_t2",
-        "week": 3,
-        "title": "Split into nibbles",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Split each byte into two nibbles (e.g. 10101111 → 1010 1111):\n1. 11001010\n2. 01111000\n3. 10100101\n4. 11110000\n5. 00110011",
-        "placeholder": "1. 1100 1010\n2. ...\n..."
-      },
-      {
-        "id": "y9_l03_t3",
-        "week": 3,
-        "title": "Binary to hexadecimal",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each byte to hexadecimal (split into nibbles, convert each nibble):\n1. 10101111\n2. 11001010\n3. 01111000\n4. 10100101\n5. 11110000",
-        "placeholder": "1. 1010 1111 → A F → AF\n2. 1100 1010 → ...\n..."
-      },
-      {
-        "id": "y9_l03_t4",
-        "week": 3,
-        "title": "Challenge — why nibbles help",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Explain WHY splitting a byte into nibbles makes converting to hexadecimal easier. What would you have to do instead if you couldn't use nibbles?",
-        "placeholder": "Nibbles make it easier because...\n\nWithout nibbles, I would have to..."
-      },
-      {
-        "id": "y9_l04_t1",
-        "week": 4,
-        "title": "Hex to binary method",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 2,
-        "question": "Fill in the blanks:\nTo convert hexadecimal to binary, convert each hex digit to ___, then convert each ___ value into a 4-bit ___.\n\nAlso: What do A and F represent in hexadecimal?",
-        "placeholder": "denary, denary, nibble\n\nA = 10, F = 15"
-      },
-      {
-        "id": "y9_l04_t2",
-        "week": 4,
-        "title": "Hex digits to 4-bit nibbles",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each hexadecimal digit into a 4-bit binary nibble:\n1. A\n2. 5\n3. F\n4. C\n5. 3",
-        "placeholder": "1. A = 10 → 1010\n2. 5 = ...\n..."
-      },
-      {
-        "id": "y9_l04_t3",
-        "week": 4,
-        "title": "Hexadecimal to binary",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Convert each hex value to an 8-bit binary number:\n1. 3F\n2. A5\n3. C2\n4. 7E\n5. B0",
-        "placeholder": "1. 3=0011, F=1111 → 00111111\n2. A=1010, 5=0101 → ...\n..."
-      },
-      {
-        "id": "y9_l04_t4",
-        "week": 4,
-        "title": "Challenge — E7 step by step",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Explain, step by step, how you would convert the hexadecimal value E7 into binary. Then explain why every nibble must have EXACTLY 4 binary digits.",
-        "placeholder": "Step 1: E = 14 in denary\nStep 2: 14 in binary = 1110 (4 bits)\nStep 3: 7 = ...\nStep 4: Join → ...\n\nEvery nibble must have 4 digits because..."
-      },
-      {
-        "id": "y9_l05_t1",
-        "week": 5,
-        "title": "RGB colour basics",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\nA colour is made from three channels: ___, ___ and ___. Each channel can hold a value from 0 to ___, giving ___-bit colour.\n\nAlso: What colours can be made mixing red, green and blue light?",
-        "placeholder": "Red, Green, Blue; 255; 24\n\nMixing RGB you can make..."
-      },
-      {
-        "id": "y9_l05_t2",
-        "week": 5,
-        "title": "Reading hex colour codes",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "State which colour each hex code represents:\n1. #FF0000\n2. #00FF00\n3. #0000FF\n4. #FFFFFF\n5. #000000",
-        "placeholder": "1. #FF0000 = Red\n2. ...\n..."
-      },
-      {
-        "id": "y9_l05_t3",
-        "week": 5,
-        "title": "Writing hex colour codes",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write the hex code for each colour:\n1. Pure yellow (full red, full green, no blue)\n2. Pure cyan (no red, full green, full blue)\n3. Pure magenta (full red, no green, full blue)\n4. A mid-grey (equal R, G, B at half strength — use 128 = 80 in hex)",
-        "placeholder": "1. Yellow = #FFFF00\n2. Cyan = ...\n3. Magenta = ...\n4. Mid-grey = #808080"
-      },
-      {
-        "id": "y9_l05_t4",
-        "week": 5,
-        "title": "Challenge — half-strength mix",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Work out the hex code for a colour that is:\n• Half-strength red (128 denary = 80 hex)\n• No green (0)\n• Half-strength blue (128 denary = 80 hex)\n\nWrite the hex code and explain what this colour would look like.",
-        "placeholder": "Hex code: #___\n\nThis would look like..."
-      },
-      {
-        "id": "y9_l06_t1",
-        "week": 6,
-        "title": "Python retrieval",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Fill in the blanks:\nA ___ stores data that can change. The ___() function displays data to the user. The ___() function collects data from the user.\n\nAlso: list as many parts of a Python program as you remember.",
-        "placeholder": "Blanks: variable, print, input\n\nParts of Python: variables, print, input, if/elif/else..."
-      },
-      {
-        "id": "y9_l06_t2",
-        "week": 6,
-        "title": "Reading Python code",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "For each line of code, explain what it does:\n1. age = 13\n2. print(\"Hello, world!\")\n3. answer = input(\"Type here: \")\n4. if score > 10:",
-        "placeholder": "1. Sets a variable called age to...\n2. ...\n3. ...\n4. ..."
-      },
-      {
-        "id": "y9_l06_t3",
-        "week": 6,
-        "title": "Writing Python code",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write a line of Python code for each task:\n1. Store the number 5 in a variable called total\n2. Print the message 'Welcome to the quiz'\n3. Ask the user to type their name and store it in 'name'\n4. Check if a variable called score is greater than 20",
-        "placeholder": "1. total = 5\n2. ...\n3. ...\n4. ..."
-      },
-      {
-        "id": "y9_l06_t4",
-        "week": 6,
-        "title": "Challenge — number comparison",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write a complete Python program that:\n1. Asks the user for a number (store as integer in 'num')\n2. Prints 'Bigger than 10' if num > 10\n3. Prints 'Equal to 10' if num == 10\n4. Prints 'Smaller than 10' if num < 10",
-        "placeholder": "num = int(input(\"Enter a number: \"))\nif num > 10:\n    print(\"Bigger than 10\")\nelif ..."
-      },
-      {
-        "id": "y9_l07_t1",
-        "week": 7,
-        "title": "What is a function?",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\nA function is created using the ___ keyword. A value passed into a function is called a ___. The ___ keyword sends a value back out of a function.\n\nAlso: why might programmers reuse code instead of writing it out again each time?",
-        "placeholder": "Blanks: def, parameter, return\n\nReusing code is useful because..."
-      },
-      {
-        "id": "y9_l07_t2",
-        "week": 7,
-        "title": "Tracing functions",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "For each function, state what it will print or return when called:\n\n1. def square(n):\n       return n * n\n   print(square(4))\n\n2. def shout(word):\n       print(word.upper())\n   shout('hi')",
-        "placeholder": "1. Returns/prints: ...\n2. Returns/prints: ..."
-      },
-      {
-        "id": "y9_l07_t3",
-        "week": 7,
-        "title": "Writing Python functions",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write a Python function for each task:\n1. A function called triple() that takes a number and returns it multiplied by 3\n2. A function called isEven() that takes a number and returns True if it is even (use %2==0)",
-        "placeholder": "def triple(n):\n    return n * 3\n\ndef isEven(n):\n    return ..."
-      },
-      {
-        "id": "y9_l07_t4",
-        "week": 7,
-        "title": "Challenge — addAll function",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write a function called addAll() that takes THREE numbers as parameters and returns their total.\n\nThen: call your function with the numbers 7, 13 and 20, and print the result.\n\nAlso explain: what is the difference between a PARAMETER and an ARGUMENT?",
-        "placeholder": "def addAll(a, b, c):\n    return ...\n\nprint(addAll(7, 13, 20))\n\nParameter = ...\nArgument = ..."
-      },
-      {
-        "id": "y9_l08_t1",
-        "week": 8,
-        "title": "numberToHexDigit — reading the flowchart",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Look at the Flowchart 1 (numberToHexDigit). Answer:\n1. If the number is 9 or less, what happens to it?\n2. If the number is 10 or more, what does the flowchart use to decide the letter?\n3. What is the hexadecimal digit for the denary number 10?",
-        "placeholder": "1. If 9 or less, it is...\n2. If 10 or more, the flowchart uses...\n3. 10 = A"
-      },
-      {
-        "id": "y9_l08_t2",
-        "week": 8,
-        "title": "Trace the flowchart",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "State what numberToHexDigit() would RETURN for each input:\n1. 7\n2. 10\n3. 12\n4. 15\n5. 3",
-        "placeholder": "1. numberToHexDigit(7) returns '7'\n2. numberToHexDigit(10) returns 'A'\n3. ...\n4. ...\n5. ..."
-      },
-      {
-        "id": "y9_l08_t3",
-        "week": 8,
-        "title": "Build the function",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write the COMPLETE Python numberToHexDigit() function. It should:\n• Accept one parameter: a number (0–15)\n• Return the single character string '0'–'9' or 'A'–'F'\n• Use if/elif for each letter value (10–15)\n• Use str() to convert numbers 0–9",
-        "placeholder": "def numberToHexDigit(number):\n    if number == 10:\n        return 'A'\n    elif number == 11:\n        return 'B'\n    elif ...\n    else:\n        return str(number)"
-      },
-      {
-        "id": "y9_l08_t4",
-        "week": 8,
-        "title": "Challenge — test all values",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Test your numberToHexDigit() function with every number from 0 to 15. Record the result for each. List any inputs that gave an unexpected result, and explain what was wrong.",
-        "placeholder": "0 → '0'\n1 → '1'\n...\n10 → 'A'\n...\n15 → 'F'\n\nUnexpected results: ..."
-      },
-      {
-        "id": "y9_l09_t1",
-        "week": 9,
-        "title": "hexDigitToNumber — reading the flowchart",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Look at Flowchart 2 (hexDigitToNumber). Answer:\n1. The flowchart checks letters A through ___.\n2. If none of the letters match, what happens to the digit?\n3. What denary number does the hexadecimal digit B represent?",
-        "placeholder": "1. A through F\n2. It is converted using int()\n3. B = 11"
-      },
-      {
-        "id": "y9_l09_t2",
-        "week": 9,
-        "title": "Trace the flowchart",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "State what hexDigitToNumber() would RETURN for each input:\n1. 'A'\n2. 'D'\n3. 'F'\n4. '6'\n5. 'B'",
-        "placeholder": "1. 'A' → 10\n2. 'D' → ...\n..."
-      },
-      {
-        "id": "y9_l09_t3",
-        "week": 9,
-        "title": "Build the function",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write the COMPLETE Python hexDigitToNumber() function. It should:\n• Accept one parameter: a hex digit ('0'–'9' or 'A'–'F')\n• Return the denary integer value\n• Use if/elif for letters A–F\n• Use int() for digit characters '0'–'9'",
-        "placeholder": "def hexDigitToNumber(hexDigit):\n    if hexDigit == 'A':\n        return 10\n    elif hexDigit == 'B':\n        return 11\n    elif ...\n    else:\n        return int(hexDigit)"
-      },
-      {
-        "id": "y9_l09_t4",
-        "week": 9,
-        "title": "Challenge — test all values",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Test your hexDigitToNumber() function with every digit from '0' to 'F'. Record the result for each. List any inputs that gave an unexpected result, and explain what was wrong.",
-        "placeholder": "'0' → 0\n'1' → 1\n...\n'A' → 10\n...\n'F' → 15\n\nUnexpected results: ..."
-      },
-      {
-        "id": "y9_l10_t1",
-        "week": 10,
-        "title": "DIV and MOD",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\nDIV is written as ___ in Python and gives the ___. MOD is written as ___ in Python and gives the ___.\n\nAlso: what happens when you divide 10 by 3? (whole number part and remainder)",
-        "placeholder": "DIV = //, gives quotient. MOD = %, gives remainder\n\n10 ÷ 3: quotient = 3, remainder = 1"
-      },
-      {
-        "id": "y9_l10_t2",
-        "week": 10,
-        "title": "DIV and MOD practice",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 6,
-        "question": "Work out each calculation:\n1. 10 // 3\n2. 10 % 3\n3. 200 // 16\n4. 200 % 16\n5. 17 // 5\n6. 17 % 5",
-        "placeholder": "1. 10 // 3 = 3\n2. 10 % 3 = 1\n3. ...\n4. ...\n5. ...\n6. ..."
-      },
-      {
-        "id": "y9_l10_t3",
-        "week": 10,
-        "title": "Apply DIV and MOD",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 2,
-        "question": "Write the Python code for each task:\n1. Store the result of 45 DIV 16 in a variable called digit1\n2. Store the result of 45 MOD 16 in a variable called digit2",
-        "placeholder": "1. digit1 = 45 // 16\n2. digit2 = 45 % 16"
-      },
-      {
-        "id": "y9_l10_t4",
-        "week": 10,
-        "title": "Challenge — why 16?",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Explain WHY we use 16 as the divisor when converting a denary number into hexadecimal.\n\nThen demonstrate with the number 200:\n• What is 200 // 16? What is this digit in hex?\n• What is 200 % 16? What is this digit in hex?\n• What is the full hex value of 200?",
-        "placeholder": "We use 16 because hexadecimal is base 16, so...\n\n200 // 16 = ... → hex digit: ...\n200 % 16 = ... → hex digit: ...\nFull hex value: ..."
-      },
-      {
-        "id": "y9_l11_t1",
-        "week": 11,
-        "title": "numberToHex — reading the flowchart",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Look at Flowchart 3 (numberToHex). Fill in the blanks:\n'digit1 is calculated using number ___ 16. digit2 is calculated using number ___ 16. Both digits are then passed into the ___ subroutine.'\n\nAlso: why might MOD and DIV be useful for hex conversion?",
-        "placeholder": "Blanks: // (DIV), % (MOD), numberToHexDigit\n\nMOD and DIV are useful because..."
-      },
-      {
-        "id": "y9_l11_t2",
-        "week": 11,
-        "title": "Trace the flowchart",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "For each number, work out digit1 (DIV 16) and digit2 (MOD 16), then give the full hex value:\n1. 32\n2. 45\n3. 200\n4. 255",
-        "placeholder": "1. 32 // 16 = 2, 32 % 16 = 0 → hex: 20\n2. 45 // 16 = ..., 45 % 16 = ... → hex: ...\n3. ...\n4. ..."
-      },
-      {
-        "id": "y9_l11_t3",
-        "week": 11,
-        "title": "Build numberToHex()",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Write the COMPLETE Python numberToHex() function that:\n• Takes one parameter: a number (0–255)\n• Calculates digit1 = number // 16\n• Calculates digit2 = number % 16\n• Calls numberToHexDigit() for each digit\n• Returns the two-character hex string",
-        "placeholder": "def numberToHex(number):\n    digit1 = number // 16\n    digit2 = number % 16\n    hex_str = numberToHexDigit(digit1) + numberToHexDigit(digit2)\n    return hex_str"
-      },
-      {
-        "id": "y9_l11_t4",
-        "week": 11,
-        "title": "Challenge — test key values",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Test your numberToHex() function with: 0, 16, 200 and 255. Record the hex value returned for each.\n\nAlso explain: why is it useful that the numberToHexDigit() subroutine ALREADY EXISTS when writing numberToHex()?",
-        "placeholder": "numberToHex(0) = ...\nnumberToHex(16) = ...\nnumberToHex(200) = ...\nnumberToHex(255) = ...\n\nIt's useful because..."
-      },
-      {
-        "id": "y9_l12_t1",
-        "week": 12,
-        "title": "Planning the quiz",
-        "difficulty": "starter",
-        "type": "freetext",
-        "marks": 3,
-        "question": "Fill in the blanks:\nThe ___ module is imported to generate random numbers. The ___() function from this module picks a random whole number between two values.\n\nAlso: list all the subroutines you've created so far and what each one does.",
-        "placeholder": "Blanks: random, randint\n\nSubroutines created:\n1. numberToHexDigit() — ...\n2. hexDigitToNumber() — ...\n3. numberToHex() — ..."
-      },
-      {
-        "id": "y9_l12_t2",
-        "week": 12,
-        "title": "Building the complete quiz",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Describe your complete Python hex quiz. For each feature below, write YES (and how yours works) or NO (and what you still need to add):\n1. Import the random module\n2. Generate a random number between 0 and 255 using randint()\n3. Convert the number to hex using numberToHex()\n4. Ask the user for their answer and compare to correct value\n5. Keep track of score and print it at the end",
-        "placeholder": "1. YES — import random\n2. YES — num = random.randint(0, 255)\n3. ...\n4. ...\n5. ..."
-      },
-      {
-        "id": "y9_l12_t3",
-        "week": 12,
-        "title": "Testing your quiz",
-        "difficulty": "core",
-        "type": "freetext",
-        "marks": 4,
-        "question": "Run your quiz and record three test cases:\n1. Test case 1 — what number was generated, what answer did you give, was it correct?\n2. Test case 2\n3. Test case 3\n\nAlso: How does your quiz generate a NEW question each time it runs?",
-        "placeholder": "Test 1: number = ..., my answer = ..., correct = ..., result: correct/wrong\nTest 2: ...\nTest 3: ...\n\nNew question each time because..."
-      },
-      {
-        "id": "y9_l12_t4",
-        "week": 12,
-        "title": "Challenge — evaluate your program",
-        "difficulty": "challenge",
-        "type": "freetext",
-        "marks": 5,
-        "question": "Write a full evaluation of your finished Python hexadecimal quiz:\n1. What works well? Give specific examples.\n2. What was hardest to implement? How did you overcome it?\n3. How did using SUBROUTINES help you build the quiz?\n4. What would you add or improve if you had more time?\n5. Convert 255 and 160 to hex as a final check (use your program or manual working).",
-        "placeholder": "1. What works well: ...\n2. Hardest part: ...\n3. Subroutines helped because...\n4. With more time I would...\n5. 255 = FF, 160 = ..."
-      }
-    ]
-  }
-]
+{
+  "scenarios": [
+    {
+      "id": "scenario_y7_binary",
+      "title": "Binary & Scratch Quiz Project",
+      "subtitle": "Understand binary, then build a quiz in Scratch",
+      "yearGroups": [
+        "Y7"
+      ],
+      "icon": "🧮",
+      "colour": "#1f6feb",
+      "sessions": 12,
+      "estimatedMins": 720,
+      "weeks": [
+        {
+          "weekNum": 1,
+          "label": "L1: What is a computer? Why binary?"
+        },
+        {
+          "weekNum": 2,
+          "label": "L2: Counting in binary (4-bit)"
+        },
+        {
+          "weekNum": 3,
+          "label": "L3: Binary conversions (8-bit)"
+        },
+        {
+          "weekNum": 4,
+          "label": "L4: Introduction to Scratch"
+        },
+        {
+          "weekNum": 5,
+          "label": "L5: Selection"
+        },
+        {
+          "weekNum": 6,
+          "label": "L6: Variables"
+        },
+        {
+          "weekNum": 7,
+          "label": "L7: Input and validation"
+        },
+        {
+          "weekNum": 8,
+          "label": "L8: Designing the quiz"
+        },
+        {
+          "weekNum": 9,
+          "label": "L9: Building the quiz"
+        },
+        {
+          "weekNum": 10,
+          "label": "L10: Enhancing the quiz"
+        },
+        {
+          "weekNum": 11,
+          "label": "L11: Testing and debugging"
+        },
+        {
+          "weekNum": 12,
+          "label": "L12: Assessment"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "y7_l01_t1",
+          "week": 1,
+          "title": "What is a computer?",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 2,
+          "question": "List THREE devices that you think are computers and explain why each one counts as a computer. Think about what makes something a 'computer'.",
+          "placeholder": "Device 1: ... because ...\nDevice 2: ... because ...\nDevice 3: ... because ..."
+        },
+        {
+          "id": "y7_l01_t2",
+          "week": 1,
+          "title": "Binary signals",
+          "difficulty": "core",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "Computers use electrical signals that are either ON or OFF. Which number system uses only two values?",
+          "options": [
+            "Denary (base 10)",
+            "Binary (base 2)",
+            "Hexadecimal (base 16)",
+            "Octal (base 8)"
+          ],
+          "answer": 1,
+          "explanation": "Binary uses only 0 and 1, matching the two states of an electrical switch."
+        },
+        {
+          "id": "y7_l01_t3",
+          "week": 1,
+          "title": "Binary digits",
+          "difficulty": "core",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "In binary, what does the digit 1 represent?",
+          "options": [
+            "The switch is OFF",
+            "The number zero",
+            "The switch is ON",
+            "Nothing at all"
+          ],
+          "answer": 2,
+          "explanation": "1 = ON — the electrical switch is conducting current; 0 = OFF."
+        },
+        {
+          "id": "y7_l01_t4",
+          "week": 1,
+          "title": "Why binary?",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Answer these three questions in full sentences:\n1. What does binary mean?\n2. Why do computers use binary instead of denary?\n3. What does a 1 represent in binary?",
+          "placeholder": "1. Binary means...\n2. Computers use binary because...\n3. A 1 represents..."
+        },
+        {
+          "id": "y7_l01_t5",
+          "week": 1,
+          "title": "Challenge — binary reliability",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Explain why binary is a reliable way for computers to store and process data. Think about the electrical signals inside a computer and what could go wrong with more complex signals.",
+          "placeholder": "Binary is reliable because..."
+        },
+        {
+          "id": "y7_l02_t1",
+          "week": 2,
+          "title": "4-bit place values",
+          "difficulty": "starter",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What are the four place values in a 4-bit binary number, reading left to right?",
+          "options": [
+            "1, 2, 4, 8",
+            "8, 4, 2, 1",
+            "4, 3, 2, 1",
+            "16, 8, 4, 2"
+          ],
+          "answer": 1,
+          "explanation": "Place values double from right to left: 1, 2, 4, 8."
+        },
+        {
+          "id": "y7_l02_t2",
+          "week": 2,
+          "title": "Binary to denary — 4-bit",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert these 4-bit binary numbers to denary. Show your working using place values (8, 4, 2, 1):\n1. 1010\n2. 0111\n3. 1101\n4. 0011\n5. 1001",
+          "placeholder": "1. 1010 = 8+2 = 10\n2. 0111 = ...\n..."
+        },
+        {
+          "id": "y7_l02_t3",
+          "week": 2,
+          "title": "Denary to binary — 4-bit",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert these denary numbers to 4-bit binary. Use the place value columns (8, 4, 2, 1):\n1. 5\n2. 7\n3. 10\n4. 12\n5. 3",
+          "placeholder": "1. 5 = 0101\n2. 7 = ...\n..."
+        },
+        {
+          "id": "y7_l02_t4",
+          "week": 2,
+          "title": "Largest 4-bit number",
+          "difficulty": "core",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What is the largest number you can represent with 4 bits?",
+          "options": [
+            "8",
+            "14",
+            "15",
+            "16"
+          ],
+          "answer": 2,
+          "explanation": "1111 = 8+4+2+1 = 15. There are 16 values (0–15) in 4 bits."
+        },
+        {
+          "id": "y7_l02_t5",
+          "week": 2,
+          "title": "Challenge — convert 13 and 15",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Convert 13 and 15 into 4-bit binary. Show your full working using the place value columns (8, 4, 2, 1).",
+          "placeholder": "13: 8 fits (13-8=5), 4 fits (5-4=1), 2 doesn't fit, 1 fits → 1101\n15: ..."
+        },
+        {
+          "id": "y7_l03_t1",
+          "week": 3,
+          "title": "8-bit place values",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Write out ALL EIGHT place values of an 8-bit binary number from left to right.\nAlso answer: Why do we need 8 bits instead of 4 bits?",
+          "placeholder": "Place values: 128, 64, ...\nWe need 8 bits because..."
+        },
+        {
+          "id": "y7_l03_t2",
+          "week": 3,
+          "title": "Denary to 8-bit binary",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert these denary numbers to 8-bit binary (use place values 128,64,32,16,8,4,2,1):\n1. 25\n2. 40\n3. 100\n4. 150\n5. 200",
+          "placeholder": "1. 25 = 00011001\n2. 40 = ...\n..."
+        },
+        {
+          "id": "y7_l03_t3",
+          "week": 3,
+          "title": "8-bit binary to denary",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert these 8-bit binary numbers to denary:\n1. 01010101\n2. 00011001\n3. 10000001\n4. 00101010\n5. 11110000",
+          "placeholder": "1. 01010101 = 64+16+4+1 = 85\n2. ..."
+        },
+        {
+          "id": "y7_l03_t4",
+          "week": 3,
+          "title": "Maximum 8-bit value",
+          "difficulty": "core",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What is the maximum value that can be stored in 8 bits (1 byte)?",
+          "options": [
+            "128",
+            "200",
+            "254",
+            "255"
+          ],
+          "answer": 3,
+          "explanation": "11111111 = 128+64+32+16+8+4+2+1 = 255."
+        },
+        {
+          "id": "y7_l03_t5",
+          "week": 3,
+          "title": "Challenge — convert 255",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Convert 255 into 8-bit binary using the place value columns. What do you notice about the result? Explain what this tells us about the maximum value of a byte.",
+          "placeholder": "255 in binary = ...\nI notice that..."
+        },
+        {
+          "id": "y7_l04_t1",
+          "week": 4,
+          "title": "What is an algorithm?",
+          "difficulty": "starter",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What is an algorithm?",
+          "options": [
+            "A type of computer",
+            "A precise step-by-step set of instructions",
+            "A Scratch sprite",
+            "A binary number"
+          ],
+          "answer": 1,
+          "explanation": "An algorithm is a precise, ordered set of instructions for solving a problem."
+        },
+        {
+          "id": "y7_l04_t2",
+          "week": 4,
+          "title": "Sequence matters",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Answer these questions about sequence in programming:\n1. What is sequence?\n2. What does a Scratch block do?\n3. Why does the ORDER of blocks matter?",
+          "placeholder": "1. Sequence is...\n2. A Scratch block...\n3. Order matters because..."
+        },
+        {
+          "id": "y7_l04_t3",
+          "week": 4,
+          "title": "Scratch Forever loop",
+          "difficulty": "core",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What does the 'Forever' block do in Scratch?",
+          "options": [
+            "Stops the program",
+            "Runs the blocks inside once",
+            "Repeats the blocks inside endlessly",
+            "Saves the project"
+          ],
+          "answer": 2,
+          "explanation": "The Forever loop repeats its contents continuously until the program is stopped."
+        },
+        {
+          "id": "y7_l04_t4",
+          "week": 4,
+          "title": "Design your own sequence",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Design your own 4-block Scratch sequence. You must include:\n• At least one movement block\n• One 'say' block\n• One sound or wait block\nWrite the blocks in order and explain what your sequence does.",
+          "placeholder": "Block 1: when green flag clicked\nBlock 2: move 10 steps\nBlock 3: ...\nBlock 4: ...\nMy sequence does..."
+        },
+        {
+          "id": "y7_l05_t1",
+          "week": 5,
+          "title": "What is selection?",
+          "difficulty": "starter",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What does selection allow a program to do?",
+          "options": [
+            "Run instructions in order",
+            "Repeat code",
+            "Choose between paths based on a condition",
+            "Store a value"
+          ],
+          "answer": 2,
+          "explanation": "Selection lets a program branch based on whether a condition is true or false."
+        },
+        {
+          "id": "y7_l05_t2",
+          "week": 5,
+          "title": "if/else statements",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Answer these questions about selection:\n1. What happens when an if condition is TRUE?\n2. What happens when an if condition is FALSE?\n3. What is a condition? Give your own example.\n4. What extra does if/else provide compared to just using if?",
+          "placeholder": "1. When true...\n2. When false...\n3. A condition is... Example: ...\n4. if/else also..."
+        },
+        {
+          "id": "y7_l05_t3",
+          "week": 5,
+          "title": "Boolean values",
+          "difficulty": "core",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What is a Boolean value?",
+          "options": [
+            "A number between 0 and 100",
+            "A type of image",
+            "A value that is TRUE or FALSE",
+            "A sprite costume"
+          ],
+          "answer": 2,
+          "explanation": "Boolean values are true or false — used in conditions and if statements."
+        },
+        {
+          "id": "y7_l05_t4",
+          "week": 5,
+          "title": "Write an if/else",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "A quiz asks: 'What is the capital of France?'\nWrite an if/else statement (in pseudocode or Scratch description) that:\n• Checks if the answer equals 'Paris'\n• Says 'Correct! +1 point' if true\n• Says 'Wrong! The answer is Paris' if false\n\nAlso: A quiz has ONLY correct/incorrect. How could you add a HINT outcome if someone is close but wrong?",
+          "placeholder": "If answer = 'Paris' then\n    say 'Correct!'\nelse\n    say 'Wrong!'\n\nTo add a hint..."
+        },
+        {
+          "id": "y7_l06_t1",
+          "week": 6,
+          "title": "What is a variable?",
+          "difficulty": "starter",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What is a variable in programming?",
+          "options": [
+            "A fixed number",
+            "A named container that stores a changing value",
+            "A type of sprite",
+            "An algorithm"
+          ],
+          "answer": 1,
+          "explanation": "A variable is a named box that holds a value that can be read and changed at any time."
+        },
+        {
+          "id": "y7_l06_t2",
+          "week": 6,
+          "title": "Set vs Change",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Explain the difference between 'set' and 'change' in Scratch variables. Then answer:\n1. What is a variable?\n2. Why does a quiz need a score variable?\n3. What happens if you forget to initialise score to 0?",
+          "placeholder": "Set means...\nChange means...\n\n1. A variable is...\n2. A quiz needs score because...\n3. If I forget to initialise..."
+        },
+        {
+          "id": "y7_l06_t3",
+          "week": 6,
+          "title": "Tracing variables",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Trace this Scratch code and write the value of 'score' after EACH step:\n\nStep 1: set score to 0\nStep 2: change score by 1\nStep 3: change score by 1\nStep 4: set score to 0\nStep 5: change score by 1\n\nWrite the value of score after each step:",
+          "placeholder": "After step 1: score = 0\nAfter step 2: score = ...\nAfter step 3: ...\nAfter step 4: ...\nAfter step 5: ..."
+        },
+        {
+          "id": "y7_l06_t4",
+          "week": 6,
+          "title": "Challenge — 3-question score plan",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Plan a 3-question quiz (in Scratch pseudocode) that:\n• Uses 'set' to initialise score to 0 at the start\n• Uses 'change' to update score for each correct answer\n• Shows the final score at the end\n\nWrite out the plan with set/change instructions for all 3 questions.",
+          "placeholder": "Set score to 0\nAsk question 1...\nIf correct: change score by 1\n..."
+        },
+        {
+          "id": "y7_l07_t1",
+          "week": 7,
+          "title": "What is validation?",
+          "difficulty": "starter",
+          "type": "multichoice",
+          "marks": 1,
+          "question": "What does validation do in a program?",
+          "options": [
+            "Makes programs colourful",
+            "Checks that input is acceptable before using it",
+            "Runs the program faster",
+            "Saves data automatically"
+          ],
+          "answer": 1,
+          "explanation": "Validation checks that user input is sensible and acceptable before the program uses it."
+        },
+        {
+          "id": "y7_l07_t2",
+          "week": 7,
+          "title": "Input validation questions",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Answer these questions about input and validation:\n1. Why do we need to validate input?\n2. What does the 'ask and wait' block do in Scratch?\n3. What could happen if input isn't checked or validated?",
+          "placeholder": "1. We validate input because...\n2. Ask and wait...\n3. Without validation..."
+        },
+        {
+          "id": "y7_l07_t3",
+          "week": 7,
+          "title": "Valid or invalid?",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "A program asks: 'How old are you?'\nFor each answer below, say if it is VALID or INVALID and explain why:\n1. 13\n2. -5\n3. hello\n4. 200",
+          "placeholder": "1. 13 — Valid/Invalid because...\n2. -5 — ...\n3. hello — ...\n4. 200 — ..."
+        },
+        {
+          "id": "y7_l07_t4",
+          "week": 7,
+          "title": "Challenge — case-insensitive answers",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "A quiz answer box is case-sensitive, so typing 'Cat' is marked WRONG even though 'cat' is correct.\n\nHow could you change the program so that 'Cat', 'CAT' and 'cat' are ALL accepted as correct? Explain your idea clearly.",
+          "placeholder": "To make the quiz case-insensitive, I could..."
+        },
+        {
+          "id": "y7_l08_t1",
+          "week": 8,
+          "title": "Retrieval starter",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Answer from memory (no notes):\n1. What is an algorithm? (Lesson 4)\n2. What does an if statement check? (Lesson 5)\n3. What is a variable? (Lesson 6)\n4. Why do we validate input? (Lesson 7)",
+          "placeholder": "1. An algorithm is...\n2. An if statement checks...\n3. A variable is...\n4. We validate because..."
+        },
+        {
+          "id": "y7_l08_t2",
+          "week": 8,
+          "title": "Flowchart symbols",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Describe what each flowchart symbol is used for:\n1. Rectangle (process box)\n2. Diamond (decision box)\n3. Oval/rounded rectangle (start/end)\n\nAlso: Why do we plan programs with flowcharts BEFORE writing code?",
+          "placeholder": "1. Rectangle = ...\n2. Diamond = ...\n3. Oval = ...\nWe plan because..."
+        },
+        {
+          "id": "y7_l08_t3",
+          "week": 8,
+          "title": "Plan your quiz question",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Plan ONE quiz question using a flowchart description. Your plan must show:\n• Start\n• Ask the question\n• Get the user's answer\n• Check: is the answer correct?\n• Yes path → add 1 to score, say 'Correct!'\n• No path → say 'Wrong!'\n• Show score\n• End\n\nWrite the steps in order:",
+          "placeholder": "START\n→ Ask 'What is 5 in binary?'\n→ Get answer\n→ Is answer = 0101? ...\n..."
+        },
+        {
+          "id": "y7_l08_t4",
+          "week": 8,
+          "title": "Challenge — two questions",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Sketch out in WORDS how your flowchart would change to include a SECOND question after the first is answered. What stays the same? What changes? What must happen to the score?",
+          "placeholder": "After the first question ends...\nThe second question would...\nThe score needs to..."
+        },
+        {
+          "id": "y7_l09_t1",
+          "week": 9,
+          "title": "Retrieval — key terms",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 4,
+          "question": "In ONE sentence each, define:\n1. Sequence\n2. Selection\n3. Variable\n4. Validation",
+          "placeholder": "1. Sequence: ...\n2. Selection: ...\n3. Variable: ...\n4. Validation: ..."
+        },
+        {
+          "id": "y7_l09_t2",
+          "week": 9,
+          "title": "Trace the quiz code",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "A quiz question is set up as:\n• ask 'What is 5 in binary?'\n• if answer = '0101' then change score by 1, say 'Correct!'\n\nTrace what happens for each of these answers typed by the user:\n1. '0101'\n2. '101'\n3. '5'\n4. '' (blank)",
+          "placeholder": "1. User types 0101: ...\n2. User types 101: ...\n3. User types 5: ...\n4. User types blank: ..."
+        },
+        {
+          "id": "y7_l09_t3",
+          "week": 9,
+          "title": "Build the quiz question",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "List the Scratch blocks you need IN ORDER to build a quiz question that:\n• Validates that the answer box is not blank\n• Checks if the answer is correct\n• Updates score if correct\n• Gives feedback either way",
+          "placeholder": "1. when green flag clicked\n2. set score to 0\n3. ask...\n4. if answer is blank then...\n5. else if answer = ... then...\n..."
+        },
+        {
+          "id": "y7_l09_t4",
+          "week": 9,
+          "title": "Challenge — blank answer validation",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Explain WHY we check if the answer is blank BEFORE checking if it is correct. What problem would occur if we checked for correctness first and the user left the box empty?",
+          "placeholder": "We check for blank first because..."
+        },
+        {
+          "id": "y7_l10_t1",
+          "week": 10,
+          "title": "Why feedback matters",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Your quiz currently says nothing when a user types a WRONG (but not blank) answer.\n1. Why is this a problem for the user?\n2. What is missing from the code to fix it?\n3. Why does feedback make a program feel more finished?",
+          "placeholder": "1. This is a problem because...\n2. What's missing is...\n3. Feedback makes programs feel..."
+        },
+        {
+          "id": "y7_l10_t2",
+          "week": 10,
+          "title": "Types of feedback",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "For each improvement idea, say whether it is a SOUND, VISUAL, or MESSAGE feedback:\n1. Making the sprite flash red when wrong\n2. Playing a fanfare when the user gets a correct answer\n3. Showing 'Correct! Well done!' on screen\n4. Changing the background colour when the score reaches 5",
+          "placeholder": "1. Visual/Sound/Message — ...\n2. ...\n3. ...\n4. ..."
+        },
+        {
+          "id": "y7_l10_t3",
+          "week": 10,
+          "title": "Plan 3 types of feedback",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Your quiz now has THREE possible outcomes: correct, wrong, and blank answer.\nPlan a DIFFERENT piece of feedback (message, sound, or visual) for EACH of the three outcomes:",
+          "placeholder": "Correct → \nWrong → \nBlank → "
+        },
+        {
+          "id": "y7_l10_t4",
+          "week": 10,
+          "title": "Challenge — add feedback",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Describe the code changes needed to add feedback to your quiz for ALL three outcomes (correct, wrong, blank). Write the additions as Scratch pseudocode, showing exactly where each new block goes.",
+          "placeholder": "After 'if answer is blank':\n  say 'Please type an answer!' for 2 seconds\n\nAfter 'if answer = correct' then correct:\n  ...\n\nFor wrong:\n  ..."
+        },
+        {
+          "id": "y7_l11_t1",
+          "week": 11,
+          "title": "Spot the bug",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 2,
+          "question": "This code should add 1 to the score when the answer is correct, but something is wrong:\n\n  if answr = \"8\" then\n    change score by 1\n\n1. What is the bug?\n2. How would you fix it?",
+          "placeholder": "1. The bug is...\n2. Fix: ..."
+        },
+        {
+          "id": "y7_l11_t2",
+          "week": 11,
+          "title": "Types of bugs",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Answer these questions:\n1. What is a bug in a program?\n2. Why do we test with DIFFERENT types of input?\n3. What should you do if a test doesn't give the expected result?",
+          "placeholder": "1. A bug is...\n2. We test different inputs because...\n3. If a test fails, I should..."
+        },
+        {
+          "id": "y7_l11_t3",
+          "week": 11,
+          "title": "Test plan",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Create a test plan for your quiz question. For EACH test below, write:\n• What you expect to happen\n• What actually happened\n\nTests:\n1. Type the correct answer\n2. Type a wrong answer\n3. Leave the box blank\n4. Type the correct answer in CAPITALS\n5. Type a number instead of words",
+          "placeholder": "Test 1 — correct answer:\n  Expected: ...\n  Actual: ...\n\nTest 2 — wrong answer:\n  Expected: ...\n  Actual: ...\n..."
+        },
+        {
+          "id": "y7_l11_t4",
+          "week": 11,
+          "title": "Challenge — debug your project",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Describe a bug you found in your own quiz project:\n1. What was wrong? (describe the unexpected behaviour)\n2. How did you find it? (what test revealed it?)\n3. How did you fix it?\n4. What did you learn from this?",
+          "placeholder": "1. The bug was...\n2. I found it when...\n3. I fixed it by...\n4. I learned..."
+        },
+        {
+          "id": "y7_l12_t1",
+          "week": 12,
+          "title": "Big review — retrieval",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Answer from memory:\n1. What is binary? (Lessons 1–3)\n2. What is an algorithm? (Lesson 4)\n3. What is selection? (Lesson 5)\n4. What is a variable? (Lesson 6)\n5. Why do we validate input? (Lesson 7)",
+          "placeholder": "1. Binary is...\n2. An algorithm is...\n3. Selection is...\n4. A variable is...\n5. We validate because..."
+        },
+        {
+          "id": "y7_l12_t2",
+          "week": 12,
+          "title": "Self-assessment checklist",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Check your Scratch quiz project against each criterion and write YES or NO + one sentence of evidence:\n1. My quiz has at least one working question\n2. My quiz uses a score variable\n3. My quiz validates the input (checks for blank)\n4. My quiz gives feedback for correct and wrong answers",
+          "placeholder": "1. YES — I have a question that asks...\n2. YES/NO — ...\n3. ...\n4. ..."
+        },
+        {
+          "id": "y7_l12_t3",
+          "week": 12,
+          "title": "Reflection",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Reflect on your project:\n1. What part are you most proud of and why?\n2. What was the trickiest part to get working? How did you solve it?\n3. If you had one more lesson, what would you add or improve?",
+          "placeholder": "1. I'm most proud of...\n2. The trickiest part was...\n3. With more time I would..."
+        },
+        {
+          "id": "y7_l12_t4",
+          "week": 12,
+          "title": "Binary + programming link",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Explain how binary and programming combine in your Scratch project. Use ALL THREE of these words in your answer: binary, sequence, selection.\n\nThen convert these as a final check:\n• 42 to 8-bit binary\n• 10110100 to denary",
+          "placeholder": "In my project, binary and programming combine because...\n\n42 in binary = ...\n10110100 in denary = ..."
+        }
+      ]
+    },
+    {
+      "id": "scenario_y8_binary",
+      "title": "Binary Mastery & Python Quiz",
+      "subtitle": "Master binary addition, then build a quiz in Python",
+      "yearGroups": [
+        "Y8"
+      ],
+      "icon": "🐍",
+      "colour": "#238636",
+      "sessions": 12,
+      "estimatedMins": 720,
+      "weeks": [
+        {
+          "weekNum": 1,
+          "label": "L1: Binary Retrieval and Baseline"
+        },
+        {
+          "weekNum": 2,
+          "label": "L2: Securing Binary Conversion (8-bit)"
+        },
+        {
+          "weekNum": 3,
+          "label": "L3: Binary Addition (4-bit)"
+        },
+        {
+          "weekNum": 4,
+          "label": "L4: Binary Addition (8-bit and Problem Solving)"
+        },
+        {
+          "weekNum": 5,
+          "label": "L5: Designing Binary Quiz Questions"
+        },
+        {
+          "weekNum": 6,
+          "label": "L6: Introduction to Python"
+        },
+        {
+          "weekNum": 7,
+          "label": "L7: Variables and Input in Python"
+        },
+        {
+          "weekNum": 8,
+          "label": "L8: Selection in Python"
+        },
+        {
+          "weekNum": 9,
+          "label": "L9: Designing the Python Quiz"
+        },
+        {
+          "weekNum": 10,
+          "label": "L10: Building the Quiz"
+        },
+        {
+          "weekNum": 11,
+          "label": "L11: Improving and Debugging"
+        },
+        {
+          "weekNum": 12,
+          "label": "L12: Assessment and Evaluation"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "y8_l01_t1",
+          "week": 1,
+          "title": "Binary place values recap",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 2,
+          "question": "Fill in the blanks for 8-bit place values:\nThe place value headings for an 8-bit binary number are: 128, 64, 32, ___, 8, 4, ___, 1\n\nAlso: Convert 5, 7 and 10 into binary (you should know these from Year 7).",
+          "placeholder": "Blanks: 16 and 2\n\n5 = ...\n7 = ...\n10 = ..."
+        },
+        {
+          "id": "y8_l01_t2",
+          "week": 1,
+          "title": "4-bit binary to denary",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each 4-bit binary number to denary. Show your place value working:\n1. 1010\n2. 0110\n3. 1111\n4. 0011\n5. 1001",
+          "placeholder": "1. 1010 = 8+2 = 10\n2. 0110 = ...\n..."
+        },
+        {
+          "id": "y8_l01_t3",
+          "week": 1,
+          "title": "8-bit binary to denary",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each 8-bit binary number to denary:\n1. 00010100\n2. 00101101\n3. 01000001\n4. 00011011\n5. 01010101",
+          "placeholder": "1. 00010100 = 16+4 = 20\n2. ..."
+        },
+        {
+          "id": "y8_l01_t4",
+          "week": 1,
+          "title": "Misconception check",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "A friend says: '1010 in binary means one thousand and ten.'\n\nExplain CLEARLY why they are wrong. Use the word 'place value' in your answer and give the correct denary answer with full working.",
+          "placeholder": "My friend is wrong because...\n\nCorrect answer: 1010 = ..."
+        },
+        {
+          "id": "y8_l02_t1",
+          "week": 2,
+          "title": "The conversion method",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 2,
+          "question": "Complete the method for converting denary to binary:\n'When converting denary to binary, if a place value ____ into the number, write a 1 and ____ that value. If it does not fit, write a 0.'\n\nAlso convert: 12, 15 and 20 to binary.",
+          "placeholder": "Missing words: 'fits' and 'subtract'\n\n12 = ...\n15 = ...\n20 = ..."
+        },
+        {
+          "id": "y8_l02_t2",
+          "week": 2,
+          "title": "Denary to 8-bit binary",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each denary number to 8-bit binary (show place value working):\n1. 37\n2. 58\n3. 72\n4. 99\n5. 150",
+          "placeholder": "1. 37: 128? No. 64? No. 32? Yes (37-32=5). 16? No. 8? No. 4? Yes (5-4=1). 2? No. 1? Yes. → 00100101\n2. ..."
+        },
+        {
+          "id": "y8_l02_t3",
+          "week": 2,
+          "title": "8-bit binary to denary",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each 8-bit binary number to denary:\n1. 01010101\n2. 00111100\n3. 01100110\n4. 00001001\n5. 01111111",
+          "placeholder": "1. 01010101 = 64+16+4+1 = 85\n2. ..."
+        },
+        {
+          "id": "y8_l02_t4",
+          "week": 2,
+          "title": "Challenge — check your answer",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Explain how you would CHECK your answer after converting a denary number into binary. (Hint: think about converting back.)\n\nThen: convert 150 to binary AND convert your answer back to denary to verify it.",
+          "placeholder": "To check my answer I would...\n\n150 in binary = ...\nConverting back: ..."
+        },
+        {
+          "id": "y8_l03_t1",
+          "week": 3,
+          "title": "Binary addition rules",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Complete the four binary addition rules:\n• 0 + 0 = ___\n• 0 + 1 = ___\n• 1 + 0 = ___\n• 1 + 1 = ___ (write ___, carry ___)\n\nAlso: Convert 1101 and 10001001 into denary.",
+          "placeholder": "0+0=0, 0+1=1, 1+0=1, 1+1=10 (write 0, carry 1)\n\n1101 = ...\n10001001 = ..."
+        },
+        {
+          "id": "y8_l03_t2",
+          "week": 3,
+          "title": "4-bit addition (no carry)",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Solve each 4-bit binary addition (no carrying needed). Show your column-by-column working:\n1. 0100 + 0011\n2. 0101 + 0010\n3. 1000 + 0111\n4. 0110 + 0001\n5. 1010 + 0100",
+          "placeholder": "1. 0100\n  +0011\n  ────\n  0111\n2. ..."
+        },
+        {
+          "id": "y8_l03_t3",
+          "week": 3,
+          "title": "4-bit addition (with carry)",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Solve each 4-bit binary addition. Show your carries above the columns:\n1. 0101 + 0011\n2. 0111 + 0001\n3. 1001 + 0110\n4. 0110 + 0101\n5. 1111 + 0001",
+          "placeholder": "1.   ¹\n  0101\n +0011\n ────\n 1000\n2. ..."
+        },
+        {
+          "id": "y8_l03_t4",
+          "week": 3,
+          "title": "Challenge — create your own",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Create your OWN 4-bit binary addition problem that REQUIRES carrying. Then solve it, showing all your carries. Finally, verify your answer by converting both input numbers to denary, adding them, and checking you get the same result.",
+          "placeholder": "My question: ____ + ____\n\nBinary working (with carries):\n...\n\nVerification:\n... + ... = ... in denary\nMy binary answer = ... in denary ✓"
+        },
+        {
+          "id": "y8_l04_t1",
+          "week": 4,
+          "title": "8-bit addition setup",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 2,
+          "question": "A 'carry chain' happens when a carry causes ANOTHER carry in the next column.\n\nAlso solve: 1 + 1, 10 + 1, and 101 + 010 (show carries where needed).",
+          "placeholder": "1+1 = 10 (carry 1)\n10+1 = ...\n101+010 = ..."
+        },
+        {
+          "id": "y8_l04_t2",
+          "week": 4,
+          "title": "8-bit binary addition",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Solve each 8-bit binary addition. Show ALL carries:\n1. 00101101 + 00011011\n2. 01001001 + 00110110\n3. 00011111 + 00000001\n4. 01010101 + 00101010\n5. 00110011 + 01001100",
+          "placeholder": "1.  00101101\n  +00011011\n  ─────────\n  01001000\n2. ..."
+        },
+        {
+          "id": "y8_l04_t3",
+          "week": 4,
+          "title": "Spot the error",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Each answer below contains a mistake. Write the CORRECT answer and explain the error:\n1. 0111 + 0001 = 0112\n2. 1010 + 0101 = 1116\n3. 0011 + 0011 = 0122",
+          "placeholder": "1. Correct answer: 1000. Error: 2 is not a valid binary digit...\n2. ...\n3. ..."
+        },
+        {
+          "id": "y8_l04_t4",
+          "week": 4,
+          "title": "Challenge — deliberate error",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Write your OWN 8-bit binary addition question that includes a deliberately WRONG answer. Then explain exactly what mistake was made and what the correct answer should be.",
+          "placeholder": "My question: ____ + ____ = ____ (wrong!)\n\nThe mistake is...\nThe correct answer is..."
+        },
+        {
+          "id": "y8_l05_t1",
+          "week": 5,
+          "title": "What makes a good question?",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Also solve these before starting:\n• 0101 + 0011\n• 1110 + 0001\n\nThen: What makes a good quiz question? What are 'distractors' and why should they be believable (not obviously wrong)?",
+          "placeholder": "0101 + 0011 = ...\n1110 + 0001 = ...\n\nA good question has...\nDistractors are...\nThey should be believable because..."
+        },
+        {
+          "id": "y8_l05_t2",
+          "week": 5,
+          "title": "Evaluate these questions",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "For each question below, explain whether it is a GOOD quiz question and why:\n1. 'Convert 00010111 to denary.'\n2. 'Is binary hard?'\n3. 'Solve 0111 + 0010, or is it easy?'",
+          "placeholder": "1. Good/Bad because...\n2. Good/Bad because...\n3. Good/Bad because..."
+        },
+        {
+          "id": "y8_l05_t3",
+          "week": 5,
+          "title": "Write 5 quiz questions",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Write FIVE of your own binary quiz questions (at least one must be an addition question). For each, include the correct answer:\n1. Question + answer\n2. Question + answer\n3. Question + answer\n4. Question + answer\n5. Question + answer (addition)",
+          "placeholder": "1. What is 01010101 in denary? Answer: 85\n2. ...\n3. ...\n4. ...\n5. ..."
+        },
+        {
+          "id": "y8_l05_t4",
+          "week": 5,
+          "title": "Challenge — write distractors",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Pick ONE of your questions from Task 3 and write THREE believable WRONG answers (distractors) for it. Explain why each distractor is believable — what common mistake would lead a student to choose it?",
+          "placeholder": "My question: ...\nCorrect answer: ...\n\nDistractor 1: ... (believable because a student might...)\nDistractor 2: ...\nDistractor 3: ..."
+        },
+        {
+          "id": "y8_l06_t1",
+          "week": 6,
+          "title": "Scratch vs Python",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "How is Scratch DIFFERENT from text-based coding like Python? List at least FOUR differences.\n\nAlso: Python is case-sensitive. What does this mean? Give an example.",
+          "placeholder": "Differences:\n1. Scratch uses blocks, Python uses...\n2. ...\n3. ...\n4. ...\n\nCase-sensitive means..."
+        },
+        {
+          "id": "y8_l06_t2",
+          "week": 6,
+          "title": "Reading Python code",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "For each line of Python code, state EXACTLY what will be printed or what happens:\n1. print(\"Hello, world!\")\n2. print(2 + 2)\n3. # print(\"This is a comment\")\n4. print(\"5\" + \"5\")",
+          "placeholder": "1. Prints: Hello, world!\n2. Prints: ...\n3. ...\n4. (careful — these are strings!)"
+        },
+        {
+          "id": "y8_l06_t3",
+          "week": 6,
+          "title": "Writing Python code",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Write a line of Python code for each task:\n1. Print the message 'I am learning Python'\n2. Print the result of 10 + 15\n3. Add a comment explaining what your program does",
+          "placeholder": "1. print(\"I am learning Python\")\n2. ...\n3. ..."
+        },
+        {
+          "id": "y8_l06_t4",
+          "week": 6,
+          "title": "Challenge — facts program",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write a short Python program that prints THREE facts about yourself. Above EACH print line, add a comment explaining what that line does.\n\nWrite out the complete program:",
+          "placeholder": "# This prints my name\nprint(\"My name is...\")\n\n# This prints...\nprint(\"...\")\n\n..."
+        },
+        {
+          "id": "y8_l07_t1",
+          "week": 7,
+          "title": "Variables and input",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\nA ___ is a named location in memory that stores data. The ___() function collects information typed by the user.\n\nAlso: What information might a quiz program need to store?",
+          "placeholder": "Blanks: variable, input\n\nA quiz might store..."
+        },
+        {
+          "id": "y8_l07_t2",
+          "week": 7,
+          "title": "Reading Python code",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "For each line of Python code, explain in your own words what it does:\n1. score = 0\n2. name = input(\"What is your name? \")\n3. score = score + 1\n4. age = int(input(\"How old are you? \"))",
+          "placeholder": "1. score = 0 means...\n2. name = input(...) means...\n3. score = score + 1 means...\n4. age = int(input(...)) means... (why int?)"
+        },
+        {
+          "id": "y8_l07_t3",
+          "week": 7,
+          "title": "Writing Python variables",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Write a line of Python code for each task:\n1. Store the number 0 in a variable called score\n2. Ask the user to type their favourite colour and store it in a variable called colour\n3. Increase a variable called score by 1",
+          "placeholder": "1. score = 0\n2. colour = input(...)\n3. score = ..."
+        },
+        {
+          "id": "y8_l07_t4",
+          "week": 7,
+          "title": "Challenge — name and age program",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write a complete Python program that:\n1. Asks the user for their name (store in 'name')\n2. Asks the user for their age (store as an integer in 'age')\n3. Prints: 'Hello [name]! You are [age] years old.'\n\nWrite the full program AND explain why you need int() for age but not for name.",
+          "placeholder": "name = input(\"What is your name? \")\nage = int(input(\"How old are you? \"))\nprint(\"Hello \" + name + \"! You are \" + str(age) + \" years old.\")\n\nI use int() for age because..."
+        },
+        {
+          "id": "y8_l08_t1",
+          "week": 8,
+          "title": "if/elif/else in Python",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\n'The ___ keyword checks a condition. If it is False, Python checks each ___ in order. If none are true, the ___ block runs instead.'\n\nAlso: give an everyday example of a decision you make.",
+          "placeholder": "Blanks: if, elif, else\n\nEveryday decision example..."
+        },
+        {
+          "id": "y8_l08_t2",
+          "week": 8,
+          "title": "Tracing Python selection",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "For each piece of code, state EXACTLY what would be printed:\n\n1. score = 3\n   if score > 5:\n       print(\"High\")\n   else:\n       print(\"Low\")\n\n2. score = 10\n   if score == 10:\n       print(\"Perfect\")\n   elif score > 5:\n       print(\"Good\")",
+          "placeholder": "1. Prints: ...\n2. Prints: ..."
+        },
+        {
+          "id": "y8_l08_t3",
+          "week": 8,
+          "title": "Writing selection in Python",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write Python code for each task:\n1. Check if a variable called age is 13 or more; print 'Teenager' if it is\n2. Write an if/elif/else chain that prints 'A', 'B', or 'Other grade' depending on a variable called mark",
+          "placeholder": "1. if age >= 13:\n       print(\"Teenager\")\n\n2. if mark == \"A\":\n       print(\"A\")\n   elif ..."
+        },
+        {
+          "id": "y8_l08_t4",
+          "week": 8,
+          "title": "Challenge — temperature program",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write a complete Python program that:\n1. Asks the user to enter a temperature (as an integer)\n2. Prints 'Hot' if temperature > 25\n3. Prints 'Warm' if temperature is between 15 and 25 (inclusive)\n4. Prints 'Cold' for anything below 15",
+          "placeholder": "temperature = int(input(\"Enter temperature: \"))\nif temperature > 25:\n    print(\"Hot\")\nelif ...\n    ..."
+        },
+        {
+          "id": "y8_l09_t1",
+          "week": 9,
+          "title": "Pseudocode and flowcharts",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\n'___code is a way of planning a program using plain English instead of exact code. A ___chart uses shapes to show each step visually.'\n\nAlso: what features should a quiz include? Think back to your questions from Lesson 5.",
+          "placeholder": "Blanks: Pseudo, Flow\n\nA quiz should include..."
+        },
+        {
+          "id": "y8_l09_t2",
+          "week": 9,
+          "title": "Reading a pseudocode plan",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Look at this pseudocode plan for a quiz question:\n\n  score = 0\n  ASK 'What is 4 + 4 in binary?'\n  GET answer\n  IF answer is correct THEN\n      score = score + 1\n  PRINT score\n\n1. What does 'ASK ... GET answer' become in Python?\n2. What does 'IF answer is correct THEN' become in Python?\n3. Why is score set to 0 BEFORE the question?\n4. What happens to score if the answer is wrong?",
+          "placeholder": "1. In Python: answer = input(...)\n2. In Python: if answer == '1000':\n3. Because...\n4. Score..."
+        },
+        {
+          "id": "y8_l09_t3",
+          "week": 9,
+          "title": "Plan your Python quiz",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Plan YOUR Python quiz using pseudocode. Include AT LEAST 3 questions. Show:\n• How score is initialised\n• How each question is asked and checked\n• How the final score is displayed",
+          "placeholder": "score = 0\n\nASK 'Question 1...'\nGET answer\nIF answer == 'correct' THEN score = score + 1\n\nASK 'Question 2...'\n...\n\nPRINT 'You scored', score"
+        },
+        {
+          "id": "y8_l09_t4",
+          "week": 9,
+          "title": "Challenge — problem avoided by planning",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Explain ONE specific problem that planning your quiz BEFORE coding helped you avoid. What would have happened if you had started coding without planning?",
+          "placeholder": "Planning helped me avoid...\n\nWithout planning, I might have..."
+        },
+        {
+          "id": "y8_l10_t1",
+          "week": 10,
+          "title": "Building a Python quiz question",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "The result of input() is always a ___. You use ___ inside an if statement to check for an exact match.\n\nTrace this code — what prints for each input:\n  score = 0\n  answer = input('What is 1010 in denary? ')\n  if answer == '10':\n      score = score + 1\n  print(score)\n\nIf you type '10': ___\nIf you type 'ten': ___",
+          "placeholder": "Blanks: string, ==\n\nIf '10': prints 1\nIf 'ten': prints ..."
+        },
+        {
+          "id": "y8_l10_t2",
+          "week": 10,
+          "title": "Build your Python quiz",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Describe the COMPLETE Python quiz you have built. Tick/confirm each requirement:\n1. At least 3 questions, each using input()\n2. Each answer checked using if/elif/else\n3. A score variable that updates correctly\n4. A final message that prints the score\n5. Answers expected as strings (in quotes)\n\nFor each: write YES and describe how yours works, OR NO and what you still need to add.",
+          "placeholder": "1. YES — I have 3 questions: ...\n2. YES — I check answers with: ...\n3. ...\n4. ...\n5. ..."
+        },
+        {
+          "id": "y8_l10_t3",
+          "week": 10,
+          "title": "Answer types matter",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Answer these questions:\n1. How is the user's answer checked in a Python quiz?\n2. Why must the expected answer be written as a string in quotes?\n3. Where in your code does the score get updated?",
+          "placeholder": "1. The answer is checked using...\n2. It must be a string because...\n3. Score updates after..."
+        },
+        {
+          "id": "y8_l10_t4",
+          "week": 10,
+          "title": "Challenge — score-based message",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Add a FINAL MESSAGE to your quiz that changes depending on the user's score. Write the Python code for the end of your quiz that prints:\n• '⭐ Excellent! Full marks!' if score equals the total questions\n• '👍 Good effort!' if score is more than half the total\n• '📚 Keep practising!' otherwise",
+          "placeholder": "if score == 3:  # (or whatever your total is)\n    print('⭐ Excellent! Full marks!')\nelif score >= 2:\n    print('👍 Good effort!')\nelse:\n    print('📚 Keep practising!')"
+        },
+        {
+          "id": "y8_l11_t1",
+          "week": 11,
+          "title": "Syntax vs logic errors",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\nA ___ error breaks Python's rules and stops the program running.\nA ___ error lets the program run but produces the wrong result.\n\nAlso: Have you found any bugs in your quiz so far? Describe one.",
+          "placeholder": "Blanks: syntax, logic\n\nA bug I found: ..."
+        },
+        {
+          "id": "y8_l11_t2",
+          "week": 11,
+          "title": "Identify the error type",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 3,
+          "question": "For each code snippet, say if it is a SYNTAX ERROR or LOGIC ERROR and explain why:\n\n1. if score > 5\n       print('Well done')\n\n2. score = score - 1   # (should be +1)\n\n3. prnit('Hello')",
+          "placeholder": "1. Type: ... Reason: ...\n2. Type: ... Reason: ...\n3. Type: ... Reason: ..."
+        },
+        {
+          "id": "y8_l11_t3",
+          "week": 11,
+          "title": "Debug your quiz",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Test your quiz thoroughly and record what you find:\n1. Bug 1 — what happened? How did you fix it?\n2. Bug 2 — what happened? How did you fix it?\n3. Test with an UNEXPECTED input (e.g. blank, capital letters, number) — what happened?\n4. How can you find errors in your code?\n5. What does a NameError usually mean?",
+          "placeholder": "1. Bug 1: I found that..., fixed by...\n2. Bug 2: ...\n3. Unexpected input: I typed..., the program...\n4. I can find errors by...\n5. NameError means..."
+        },
+        {
+          "id": "y8_l11_t4",
+          "week": 11,
+          "title": "Challenge — prevent future bugs",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Explain ONE strategy you could use in FUTURE projects to prevent a bug you found today. Be specific — refer to the actual bug and explain how your strategy would catch it earlier.",
+          "placeholder": "The bug I found was...\n\nIn future, I will prevent this by...\n\nThis would work because..."
+        },
+        {
+          "id": "y8_l12_t1",
+          "week": 12,
+          "title": "Unit review — key ideas",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 5,
+          "question": "List as many key ideas from this unit as you can. Include at least TWO from binary and TWO from Python programming.",
+          "placeholder": "Binary:\n1. ...\n2. ...\n\nPython:\n1. ...\n2. ...\n\nAlso..."
+        },
+        {
+          "id": "y8_l12_t2",
+          "week": 12,
+          "title": "Success criteria evaluation",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Evaluate your finished Python quiz against each criterion. Write YES or NO, then one sentence of evidence:\n1. At least 3 working questions using input()\n2. Each answer checked correctly with if/elif/else\n3. Score variable that updates after each correct answer\n4. Final message that changes based on score",
+          "placeholder": "1. YES — my quiz has 3 questions: ...\n2. ...\n3. ...\n4. ..."
+        },
+        {
+          "id": "y8_l12_t3",
+          "week": 12,
+          "title": "Reflection and improvements",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Reflect on the whole unit:\n1. What does your program do well?\n2. What was hardest to get working, and how did you solve it?\n3. How confident do you feel converting between binary and denary now?\n4. If you had more time, what would you add or improve?",
+          "placeholder": "1. My program does well at...\n2. The hardest part was...\n3. My confidence level...\n4. With more time I would..."
+        },
+        {
+          "id": "y8_l12_t4",
+          "week": 12,
+          "title": "Challenge — binary meets Python",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Explain how your binary knowledge and Python programming skills were COMBINED in your finished quiz.\n\nAlso complete these as a final mastery check:\n• Convert 01101100 to denary\n• Convert 108 to 8-bit binary\n• Solve: 00110011 + 01001100",
+          "placeholder": "Binary meets Python in my quiz because...\n\nFinal checks:\n01101100 = ...\n108 = ...\n00110011 + 01001100 = ..."
+        }
+      ]
+    },
+    {
+      "id": "scenario_y9_python",
+      "title": "Hexadecimal & Python Subroutines",
+      "subtitle": "Convert binary to hex, then build a Python hex quiz using subroutines",
+      "yearGroups": [
+        "Y9"
+      ],
+      "icon": "⬡",
+      "colour": "#9e6a03",
+      "sessions": 12,
+      "estimatedMins": 720,
+      "weeks": [
+        {
+          "weekNum": 1,
+          "label": "L1: Binary and Binary Addition Retrieval"
+        },
+        {
+          "weekNum": 2,
+          "label": "L2: Introduction to Hexadecimal"
+        },
+        {
+          "weekNum": 3,
+          "label": "L3: Binary to Hexadecimal"
+        },
+        {
+          "weekNum": 4,
+          "label": "L4: Hexadecimal to Binary"
+        },
+        {
+          "weekNum": 5,
+          "label": "L5: RGB Colours"
+        },
+        {
+          "weekNum": 6,
+          "label": "L6: Python Retrieval"
+        },
+        {
+          "weekNum": 7,
+          "label": "L7: Creating Subroutines"
+        },
+        {
+          "weekNum": 8,
+          "label": "L8: Flowchart 1: Number to Hex Digit"
+        },
+        {
+          "weekNum": 9,
+          "label": "L9: Flowchart 2: Hex Digit to Number"
+        },
+        {
+          "weekNum": 10,
+          "label": "L10: MOD and DIV Operators"
+        },
+        {
+          "weekNum": 11,
+          "label": "L11: Flowchart 3: Number to Hex Value"
+        },
+        {
+          "weekNum": 12,
+          "label": "L12: Building the Random Hexadecimal Quiz"
+        }
+      ],
+      "tasks": [
+        {
+          "id": "y9_l01_t1",
+          "week": 1,
+          "title": "Binary retrieval",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Convert to 8-bit binary:\n1. 12\n2. 22\n3. 30\n4. 45\n5. 60",
+          "placeholder": "1. 12 = 00001100\n2. ...\n..."
+        },
+        {
+          "id": "y9_l01_t2",
+          "week": 1,
+          "title": "Binary addition rules",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 2,
+          "question": "Complete the binary addition rules:\n• 0 + 0 = ___\n• 0 + 1 = ___\n• 1 + 1 = ___ (write ___, carry ___)",
+          "placeholder": "0+0=0, 0+1=1, 1+1=10 (write 0, carry 1)"
+        },
+        {
+          "id": "y9_l01_t3",
+          "week": 1,
+          "title": "Binary addition practice",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Solve each binary addition. Show your carrying clearly:\n1. 0101 + 0011\n2. 1001 + 0110\n3. 1111 + 0001\n4. 0110 + 0101\n5. 1010 + 1011",
+          "placeholder": "1.   ¹\n  0101\n +0011\n ────\n 1000\n\n2. ..."
+        },
+        {
+          "id": "y9_l01_t4",
+          "week": 1,
+          "title": "Challenge — why carry?",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Explain why a computer needs to 'carry' during binary addition. How is this SIMILAR to carrying in denary addition? Give a denary example to support your explanation.",
+          "placeholder": "In binary, we carry because...\n\nThis is similar to denary carrying: for example, 9+1=10 in denary — we write 0 and carry 1. In binary..."
+        },
+        {
+          "id": "y9_l02_t1",
+          "week": 2,
+          "title": "What is hexadecimal?",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\nHexadecimal is base ___. It uses digits 0–9 and the letters ___ to ___ to represent the values 10 to 15.\n\nAlso: What happens when we count past 9 in base 10?",
+          "placeholder": "Blanks: 16, A, F\n\nWhen we count past 9 in base 10..."
+        },
+        {
+          "id": "y9_l02_t2",
+          "week": 2,
+          "title": "Hex digits to denary",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each hexadecimal digit to its denary value:\n1. A\n2. C\n3. E\n4. 9\n5. F",
+          "placeholder": "1. A = 10\n2. C = ...\n..."
+        },
+        {
+          "id": "y9_l02_t3",
+          "week": 2,
+          "title": "Denary to hex digits",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each denary value to its hexadecimal digit:\n1. 10\n2. 11\n3. 13\n4. 15\n5. 8",
+          "placeholder": "1. 10 = A\n2. 11 = ...\n..."
+        },
+        {
+          "id": "y9_l02_t4",
+          "week": 2,
+          "title": "Challenge — why use hex?",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Answer these questions:\n1. What do A and F represent in hexadecimal?\n2. Why can hexadecimal not use the digit 'G'?\n3. How many digits does hexadecimal use in total?\n4. Explain why hexadecimal is USEFUL in computing, even though computers only understand binary.",
+          "placeholder": "1. A = ..., F = ...\n2. G can't be used because...\n3. Total digits: ...\n4. Hex is useful because..."
+        },
+        {
+          "id": "y9_l03_t1",
+          "week": 3,
+          "title": "Nibbles",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 2,
+          "question": "Fill in the blanks:\nA byte is made up of ___ bits. A nibble is half of a byte, which is ___ bits.\n\nAlso convert: 1010 and 1111 into denary.",
+          "placeholder": "8 bits, 4 bits\n\n1010 = ...\n1111 = ..."
+        },
+        {
+          "id": "y9_l03_t2",
+          "week": 3,
+          "title": "Split into nibbles",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Split each byte into two nibbles (e.g. 10101111 → 1010 1111):\n1. 11001010\n2. 01111000\n3. 10100101\n4. 11110000\n5. 00110011",
+          "placeholder": "1. 1100 1010\n2. ...\n..."
+        },
+        {
+          "id": "y9_l03_t3",
+          "week": 3,
+          "title": "Binary to hexadecimal",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each byte to hexadecimal (split into nibbles, convert each nibble):\n1. 10101111\n2. 11001010\n3. 01111000\n4. 10100101\n5. 11110000",
+          "placeholder": "1. 1010 1111 → A F → AF\n2. 1100 1010 → ...\n..."
+        },
+        {
+          "id": "y9_l03_t4",
+          "week": 3,
+          "title": "Challenge — why nibbles help",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Explain WHY splitting a byte into nibbles makes converting to hexadecimal easier. What would you have to do instead if you couldn't use nibbles?",
+          "placeholder": "Nibbles make it easier because...\n\nWithout nibbles, I would have to..."
+        },
+        {
+          "id": "y9_l04_t1",
+          "week": 4,
+          "title": "Hex to binary method",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 2,
+          "question": "Fill in the blanks:\nTo convert hexadecimal to binary, convert each hex digit to ___, then convert each ___ value into a 4-bit ___.\n\nAlso: What do A and F represent in hexadecimal?",
+          "placeholder": "denary, denary, nibble\n\nA = 10, F = 15"
+        },
+        {
+          "id": "y9_l04_t2",
+          "week": 4,
+          "title": "Hex digits to 4-bit nibbles",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each hexadecimal digit into a 4-bit binary nibble:\n1. A\n2. 5\n3. F\n4. C\n5. 3",
+          "placeholder": "1. A = 10 → 1010\n2. 5 = ...\n..."
+        },
+        {
+          "id": "y9_l04_t3",
+          "week": 4,
+          "title": "Hexadecimal to binary",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Convert each hex value to an 8-bit binary number:\n1. 3F\n2. A5\n3. C2\n4. 7E\n5. B0",
+          "placeholder": "1. 3=0011, F=1111 → 00111111\n2. A=1010, 5=0101 → ...\n..."
+        },
+        {
+          "id": "y9_l04_t4",
+          "week": 4,
+          "title": "Challenge — E7 step by step",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Explain, step by step, how you would convert the hexadecimal value E7 into binary. Then explain why every nibble must have EXACTLY 4 binary digits.",
+          "placeholder": "Step 1: E = 14 in denary\nStep 2: 14 in binary = 1110 (4 bits)\nStep 3: 7 = ...\nStep 4: Join → ...\n\nEvery nibble must have 4 digits because..."
+        },
+        {
+          "id": "y9_l05_t1",
+          "week": 5,
+          "title": "RGB colour basics",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\nA colour is made from three channels: ___, ___ and ___. Each channel can hold a value from 0 to ___, giving ___-bit colour.\n\nAlso: What colours can be made mixing red, green and blue light?",
+          "placeholder": "Red, Green, Blue; 255; 24\n\nMixing RGB you can make..."
+        },
+        {
+          "id": "y9_l05_t2",
+          "week": 5,
+          "title": "Reading hex colour codes",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "State which colour each hex code represents:\n1. #FF0000\n2. #00FF00\n3. #0000FF\n4. #FFFFFF\n5. #000000",
+          "placeholder": "1. #FF0000 = Red\n2. ...\n..."
+        },
+        {
+          "id": "y9_l05_t3",
+          "week": 5,
+          "title": "Writing hex colour codes",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write the hex code for each colour:\n1. Pure yellow (full red, full green, no blue)\n2. Pure cyan (no red, full green, full blue)\n3. Pure magenta (full red, no green, full blue)\n4. A mid-grey (equal R, G, B at half strength — use 128 = 80 in hex)",
+          "placeholder": "1. Yellow = #FFFF00\n2. Cyan = ...\n3. Magenta = ...\n4. Mid-grey = #808080"
+        },
+        {
+          "id": "y9_l05_t4",
+          "week": 5,
+          "title": "Challenge — half-strength mix",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Work out the hex code for a colour that is:\n• Half-strength red (128 denary = 80 hex)\n• No green (0)\n• Half-strength blue (128 denary = 80 hex)\n\nWrite the hex code and explain what this colour would look like.",
+          "placeholder": "Hex code: #___\n\nThis would look like..."
+        },
+        {
+          "id": "y9_l06_t1",
+          "week": 6,
+          "title": "Python retrieval",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Fill in the blanks:\nA ___ stores data that can change. The ___() function displays data to the user. The ___() function collects data from the user.\n\nAlso: list as many parts of a Python program as you remember.",
+          "placeholder": "Blanks: variable, print, input\n\nParts of Python: variables, print, input, if/elif/else..."
+        },
+        {
+          "id": "y9_l06_t2",
+          "week": 6,
+          "title": "Reading Python code",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "For each line of code, explain what it does:\n1. age = 13\n2. print(\"Hello, world!\")\n3. answer = input(\"Type here: \")\n4. if score > 10:",
+          "placeholder": "1. Sets a variable called age to...\n2. ...\n3. ...\n4. ..."
+        },
+        {
+          "id": "y9_l06_t3",
+          "week": 6,
+          "title": "Writing Python code",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write a line of Python code for each task:\n1. Store the number 5 in a variable called total\n2. Print the message 'Welcome to the quiz'\n3. Ask the user to type their name and store it in 'name'\n4. Check if a variable called score is greater than 20",
+          "placeholder": "1. total = 5\n2. ...\n3. ...\n4. ..."
+        },
+        {
+          "id": "y9_l06_t4",
+          "week": 6,
+          "title": "Challenge — number comparison",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write a complete Python program that:\n1. Asks the user for a number (store as integer in 'num')\n2. Prints 'Bigger than 10' if num > 10\n3. Prints 'Equal to 10' if num == 10\n4. Prints 'Smaller than 10' if num < 10",
+          "placeholder": "num = int(input(\"Enter a number: \"))\nif num > 10:\n    print(\"Bigger than 10\")\nelif ..."
+        },
+        {
+          "id": "y9_l07_t1",
+          "week": 7,
+          "title": "What is a function?",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\nA function is created using the ___ keyword. A value passed into a function is called a ___. The ___ keyword sends a value back out of a function.\n\nAlso: why might programmers reuse code instead of writing it out again each time?",
+          "placeholder": "Blanks: def, parameter, return\n\nReusing code is useful because..."
+        },
+        {
+          "id": "y9_l07_t2",
+          "week": 7,
+          "title": "Tracing functions",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "For each function, state what it will print or return when called:\n\n1. def square(n):\n       return n * n\n   print(square(4))\n\n2. def shout(word):\n       print(word.upper())\n   shout('hi')",
+          "placeholder": "1. Returns/prints: ...\n2. Returns/prints: ..."
+        },
+        {
+          "id": "y9_l07_t3",
+          "week": 7,
+          "title": "Writing Python functions",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write a Python function for each task:\n1. A function called triple() that takes a number and returns it multiplied by 3\n2. A function called isEven() that takes a number and returns True if it is even (use %2==0)",
+          "placeholder": "def triple(n):\n    return n * 3\n\ndef isEven(n):\n    return ..."
+        },
+        {
+          "id": "y9_l07_t4",
+          "week": 7,
+          "title": "Challenge — addAll function",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write a function called addAll() that takes THREE numbers as parameters and returns their total.\n\nThen: call your function with the numbers 7, 13 and 20, and print the result.\n\nAlso explain: what is the difference between a PARAMETER and an ARGUMENT?",
+          "placeholder": "def addAll(a, b, c):\n    return ...\n\nprint(addAll(7, 13, 20))\n\nParameter = ...\nArgument = ..."
+        },
+        {
+          "id": "y9_l08_t1",
+          "week": 8,
+          "title": "numberToHexDigit — reading the flowchart",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Look at the Flowchart 1 (numberToHexDigit). Answer:\n1. If the number is 9 or less, what happens to it?\n2. If the number is 10 or more, what does the flowchart use to decide the letter?\n3. What is the hexadecimal digit for the denary number 10?",
+          "placeholder": "1. If 9 or less, it is...\n2. If 10 or more, the flowchart uses...\n3. 10 = A"
+        },
+        {
+          "id": "y9_l08_t2",
+          "week": 8,
+          "title": "Trace the flowchart",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "State what numberToHexDigit() would RETURN for each input:\n1. 7\n2. 10\n3. 12\n4. 15\n5. 3",
+          "placeholder": "1. numberToHexDigit(7) returns '7'\n2. numberToHexDigit(10) returns 'A'\n3. ...\n4. ...\n5. ..."
+        },
+        {
+          "id": "y9_l08_t3",
+          "week": 8,
+          "title": "Build the function",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write the COMPLETE Python numberToHexDigit() function. It should:\n• Accept one parameter: a number (0–15)\n• Return the single character string '0'–'9' or 'A'–'F'\n• Use if/elif for each letter value (10–15)\n• Use str() to convert numbers 0–9",
+          "placeholder": "def numberToHexDigit(number):\n    if number == 10:\n        return 'A'\n    elif number == 11:\n        return 'B'\n    elif ...\n    else:\n        return str(number)"
+        },
+        {
+          "id": "y9_l08_t4",
+          "week": 8,
+          "title": "Challenge — test all values",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Test your numberToHexDigit() function with every number from 0 to 15. Record the result for each. List any inputs that gave an unexpected result, and explain what was wrong.",
+          "placeholder": "0 → '0'\n1 → '1'\n...\n10 → 'A'\n...\n15 → 'F'\n\nUnexpected results: ..."
+        },
+        {
+          "id": "y9_l09_t1",
+          "week": 9,
+          "title": "hexDigitToNumber — reading the flowchart",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Look at Flowchart 2 (hexDigitToNumber). Answer:\n1. The flowchart checks letters A through ___.\n2. If none of the letters match, what happens to the digit?\n3. What denary number does the hexadecimal digit B represent?",
+          "placeholder": "1. A through F\n2. It is converted using int()\n3. B = 11"
+        },
+        {
+          "id": "y9_l09_t2",
+          "week": 9,
+          "title": "Trace the flowchart",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "State what hexDigitToNumber() would RETURN for each input:\n1. 'A'\n2. 'D'\n3. 'F'\n4. '6'\n5. 'B'",
+          "placeholder": "1. 'A' → 10\n2. 'D' → ...\n..."
+        },
+        {
+          "id": "y9_l09_t3",
+          "week": 9,
+          "title": "Build the function",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write the COMPLETE Python hexDigitToNumber() function. It should:\n• Accept one parameter: a hex digit ('0'–'9' or 'A'–'F')\n• Return the denary integer value\n• Use if/elif for letters A–F\n• Use int() for digit characters '0'–'9'",
+          "placeholder": "def hexDigitToNumber(hexDigit):\n    if hexDigit == 'A':\n        return 10\n    elif hexDigit == 'B':\n        return 11\n    elif ...\n    else:\n        return int(hexDigit)"
+        },
+        {
+          "id": "y9_l09_t4",
+          "week": 9,
+          "title": "Challenge — test all values",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Test your hexDigitToNumber() function with every digit from '0' to 'F'. Record the result for each. List any inputs that gave an unexpected result, and explain what was wrong.",
+          "placeholder": "'0' → 0\n'1' → 1\n...\n'A' → 10\n...\n'F' → 15\n\nUnexpected results: ..."
+        },
+        {
+          "id": "y9_l10_t1",
+          "week": 10,
+          "title": "DIV and MOD",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\nDIV is written as ___ in Python and gives the ___. MOD is written as ___ in Python and gives the ___.\n\nAlso: what happens when you divide 10 by 3? (whole number part and remainder)",
+          "placeholder": "DIV = //, gives quotient. MOD = %, gives remainder\n\n10 ÷ 3: quotient = 3, remainder = 1"
+        },
+        {
+          "id": "y9_l10_t2",
+          "week": 10,
+          "title": "DIV and MOD practice",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 6,
+          "question": "Work out each calculation:\n1. 10 // 3\n2. 10 % 3\n3. 200 // 16\n4. 200 % 16\n5. 17 // 5\n6. 17 % 5",
+          "placeholder": "1. 10 // 3 = 3\n2. 10 % 3 = 1\n3. ...\n4. ...\n5. ...\n6. ..."
+        },
+        {
+          "id": "y9_l10_t3",
+          "week": 10,
+          "title": "Apply DIV and MOD",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 2,
+          "question": "Write the Python code for each task:\n1. Store the result of 45 DIV 16 in a variable called digit1\n2. Store the result of 45 MOD 16 in a variable called digit2",
+          "placeholder": "1. digit1 = 45 // 16\n2. digit2 = 45 % 16"
+        },
+        {
+          "id": "y9_l10_t4",
+          "week": 10,
+          "title": "Challenge — why 16?",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Explain WHY we use 16 as the divisor when converting a denary number into hexadecimal.\n\nThen demonstrate with the number 200:\n• What is 200 // 16? What is this digit in hex?\n• What is 200 % 16? What is this digit in hex?\n• What is the full hex value of 200?",
+          "placeholder": "We use 16 because hexadecimal is base 16, so...\n\n200 // 16 = ... → hex digit: ...\n200 % 16 = ... → hex digit: ...\nFull hex value: ..."
+        },
+        {
+          "id": "y9_l11_t1",
+          "week": 11,
+          "title": "numberToHex — reading the flowchart",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Look at Flowchart 3 (numberToHex). Fill in the blanks:\n'digit1 is calculated using number ___ 16. digit2 is calculated using number ___ 16. Both digits are then passed into the ___ subroutine.'\n\nAlso: why might MOD and DIV be useful for hex conversion?",
+          "placeholder": "Blanks: // (DIV), % (MOD), numberToHexDigit\n\nMOD and DIV are useful because..."
+        },
+        {
+          "id": "y9_l11_t2",
+          "week": 11,
+          "title": "Trace the flowchart",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "For each number, work out digit1 (DIV 16) and digit2 (MOD 16), then give the full hex value:\n1. 32\n2. 45\n3. 200\n4. 255",
+          "placeholder": "1. 32 // 16 = 2, 32 % 16 = 0 → hex: 20\n2. 45 // 16 = ..., 45 % 16 = ... → hex: ...\n3. ...\n4. ..."
+        },
+        {
+          "id": "y9_l11_t3",
+          "week": 11,
+          "title": "Build numberToHex()",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Write the COMPLETE Python numberToHex() function that:\n• Takes one parameter: a number (0–255)\n• Calculates digit1 = number // 16\n• Calculates digit2 = number % 16\n• Calls numberToHexDigit() for each digit\n• Returns the two-character hex string",
+          "placeholder": "def numberToHex(number):\n    digit1 = number // 16\n    digit2 = number % 16\n    hex_str = numberToHexDigit(digit1) + numberToHexDigit(digit2)\n    return hex_str"
+        },
+        {
+          "id": "y9_l11_t4",
+          "week": 11,
+          "title": "Challenge — test key values",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Test your numberToHex() function with: 0, 16, 200 and 255. Record the hex value returned for each.\n\nAlso explain: why is it useful that the numberToHexDigit() subroutine ALREADY EXISTS when writing numberToHex()?",
+          "placeholder": "numberToHex(0) = ...\nnumberToHex(16) = ...\nnumberToHex(200) = ...\nnumberToHex(255) = ...\n\nIt's useful because..."
+        },
+        {
+          "id": "y9_l12_t1",
+          "week": 12,
+          "title": "Planning the quiz",
+          "difficulty": "starter",
+          "type": "freetext",
+          "marks": 3,
+          "question": "Fill in the blanks:\nThe ___ module is imported to generate random numbers. The ___() function from this module picks a random whole number between two values.\n\nAlso: list all the subroutines you've created so far and what each one does.",
+          "placeholder": "Blanks: random, randint\n\nSubroutines created:\n1. numberToHexDigit() — ...\n2. hexDigitToNumber() — ...\n3. numberToHex() — ..."
+        },
+        {
+          "id": "y9_l12_t2",
+          "week": 12,
+          "title": "Building the complete quiz",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Describe your complete Python hex quiz. For each feature below, write YES (and how yours works) or NO (and what you still need to add):\n1. Import the random module\n2. Generate a random number between 0 and 255 using randint()\n3. Convert the number to hex using numberToHex()\n4. Ask the user for their answer and compare to correct value\n5. Keep track of score and print it at the end",
+          "placeholder": "1. YES — import random\n2. YES — num = random.randint(0, 255)\n3. ...\n4. ...\n5. ..."
+        },
+        {
+          "id": "y9_l12_t3",
+          "week": 12,
+          "title": "Testing your quiz",
+          "difficulty": "core",
+          "type": "freetext",
+          "marks": 4,
+          "question": "Run your quiz and record three test cases:\n1. Test case 1 — what number was generated, what answer did you give, was it correct?\n2. Test case 2\n3. Test case 3\n\nAlso: How does your quiz generate a NEW question each time it runs?",
+          "placeholder": "Test 1: number = ..., my answer = ..., correct = ..., result: correct/wrong\nTest 2: ...\nTest 3: ...\n\nNew question each time because..."
+        },
+        {
+          "id": "y9_l12_t4",
+          "week": 12,
+          "title": "Challenge — evaluate your program",
+          "difficulty": "challenge",
+          "type": "freetext",
+          "marks": 5,
+          "question": "Write a full evaluation of your finished Python hexadecimal quiz:\n1. What works well? Give specific examples.\n2. What was hardest to implement? How did you overcome it?\n3. How did using SUBROUTINES help you build the quiz?\n4. What would you add or improve if you had more time?\n5. Convert 255 and 160 to hex as a final check (use your program or manual working).",
+          "placeholder": "1. What works well: ...\n2. Hardest part: ...\n3. Subroutines helped because...\n4. With more time I would...\n5. 255 = FF, 160 = ..."
+        }
+      ]
+    }
+  ]
+}
