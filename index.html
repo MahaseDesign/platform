@@ -3139,8 +3139,17 @@ let STATE = {
 
 /* ─── UTILS ──────────────────────────────────────────────────────── */
 async function sha256(str) {
-  const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+  // Use crypto.subtle if available (HTTPS), otherwise fall back to djb2
+  if (window.crypto && window.crypto.subtle) {
+    try {
+      const buf = await crypto.subtle.digest('SHA-256', new TextEncoder().encode(str));
+      return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
+    } catch(e) {}
+  }
+  // Fallback: djb2 hash — works on HTTP, sufficient for localStorage auth
+  let h = 5381;
+  for (let i = 0; i < str.length; i++) h = ((h << 5) + h) ^ str.charCodeAt(i);
+  return 'djb2_' + (h >>> 0).toString(16).padStart(8,'0');
 }
 
 function uuid() {
@@ -3285,20 +3294,25 @@ async function doLogin() {
   const btn = document.getElementById('btn-login');
   btn.disabled = true; btn.textContent = 'Signing in...';
 
-  const hash = await sha256(password);
-  const students = await fetchStudents();
-  const student = students.find(s => s.username === username && s.passwordHash === hash);
+  try {
+    const hash = await sha256(password);
+    const students = await fetchStudents();
+    const student = students.find(s => s.username === username && s.passwordHash === hash);
 
-  if (!student) {
-    showAlert('login-error', 'Email or password incorrect.');
+    if (!student) {
+      showAlert('login-error', 'Email or password incorrect.');
+      btn.disabled = false; btn.textContent = 'Sign In →';
+      return;
+    }
+
+    STATE.user = student;
+    localStorage.setItem('ks3cs_session', JSON.stringify({ userId: student.userId }));
+    afterLogin();
+  } catch(e) {
+    showAlert('login-error', 'Error: ' + e.message);
+  } finally {
     btn.disabled = false; btn.textContent = 'Sign In →';
-    return;
   }
-
-  STATE.user = student;
-  localStorage.setItem('ks3cs_session', JSON.stringify({ userId: student.userId }));
-  btn.disabled = false; btn.textContent = 'Sign In →';
-  afterLogin();
 }
 
 async function doRegister() {
@@ -3324,30 +3338,32 @@ async function doRegister() {
   }
   // Class code is stored as-is — teacher can see all classes in dashboard
 
-  // All operations are now localStorage — no network calls, no catch needed
-  const hash = await sha256(password);
-  const students = await fetchStudents();
+  try {
+    const hash = await sha256(password);
+    const students = await fetchStudents();
 
-  if (students.find(s => s.username === username)) {
-    showAlert('reg-error', 'That email is already registered. Please sign in instead.'); return;
+    if (students.find(s => s.username === username)) {
+      showAlert('reg-error', 'That email is already registered. Please sign in instead.'); return;
+    }
+
+    const newStudent = {
+      userId: uuid(),
+      username,
+      passwordHash: hash,
+      yearGroup,
+      classCode,
+      registeredAt: new Date().toISOString(),
+      scenarios: {},
+    };
+
+    students.push(newStudent);
+    saveStudents(students);
+    STATE.user = newStudent;
+    localStorage.setItem('ks3cs_session', JSON.stringify({ userId: newStudent.userId }));
+    afterLogin();
+  } catch(e) {
+    showAlert('reg-error', 'Registration error: ' + e.message);
   }
-
-  const newStudent = {
-    userId: uuid(),
-    username,
-    passwordHash: hash,
-    yearGroup,
-    classCode,
-    registeredAt: new Date().toISOString(),
-    scenarios: {},
-  };
-
-  students.push(newStudent);
-  saveStudents(students); // synchronous localStorage — no await needed
-
-  STATE.user = newStudent;
-  localStorage.setItem('ks3cs_session', JSON.stringify({ userId: newStudent.userId }));
-  afterLogin();
 }
 
 function afterLogin() {
