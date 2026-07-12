@@ -2876,7 +2876,7 @@ body.teacher-theme .stuck-col { background: rgba(210,153,34,0.12) !important; }
         <select id="pres-lesson" style="width:280px">
           <option value="">Select lesson…</option>
         </select>
-        <button class="btn btn-primary" onclick="launchPresentation()">🖥 Present Fullscreen</button>
+        <button class="btn btn-primary" onclick="launchLegacyPresentation()">🖥 Present Fullscreen</button>
         <button class="btn btn-secondary" onclick="launchPresentation('inline')">▶ Preview Here</button>
       </div>
 
@@ -4044,7 +4044,7 @@ async function resetStudentPassword(userId, username) {
   }
 }
 
-async function deleteStudent(userId, username) {
+async function deleteStudentFromDashboard(userId, username) {
   if (!confirm(`Remove "${username}" from the platform? This will delete all their progress and cannot be undone.`)) return;
   try {
     const students = await fetchStudents();
@@ -4176,7 +4176,7 @@ function renderDashboard(students, scenarioFilter = '') {
               🔑 Reset Password
             </button>
             <button class="btn btn-secondary btn-sm" style="color:var(--red);border-color:var(--red)"
-              onclick="deleteStudent('${student.userId}','${student.username}')">
+              onclick="deleteStudentFromDashboard('${student.userId}','${student.username}')">
               ✕ Remove Student
             </button>
           </div>
@@ -4296,6 +4296,14 @@ function loadSettingsInfo() {
   if (sc) sc.textContent = STATE.scenarios.length;
   if (st) st.textContent = STATE.allStudents.length;
   renderVisibleScenariosList();
+  // Populate media scenario picker
+  const sel = document.getElementById('media-scenario-select');
+  if (sel) {
+    sel.innerHTML = '<option value="">— select scenario —</option>' +
+      STATE.scenarios.map(s =>
+        `<option value="${s.id}">${s.title} (${s.yearGroups.join(', ')})</option>`
+      ).join('');
+  }
 }
 
 function changeTeacherPin() {
@@ -4430,7 +4438,7 @@ function checkPresentReady() {
   wrap.style.display = ready ? 'block' : 'none';
 }
 
-document.getElementById('present-week').addEventListener('change', checkPresentReady);
+const _pw = document.getElementById('present-week'); if (_pw) _pw.addEventListener('change', checkPresentReady);
 
 /* ─── BUILD SLIDES ───────────────────────────────────────────────── */
 function buildSlides(sc, weekIdx, teacherNote) {
@@ -4579,7 +4587,7 @@ function generateExample(sc, wNum) {
 }
 
 /* ─── LAUNCH PRESENTATION ────────────────────────────────────────── */
-async function launchPresentation() {
+async function launchLegacyPresentation() {
   const scenId = document.getElementById('present-scenario').value;
   const weekIdx = parseInt(document.getElementById('present-week').value);
   const note    = document.getElementById('present-teacher-note').value.trim();
@@ -4651,13 +4659,13 @@ function showSlide(idx) {
     `<div class="slide-dot-sm ${i<idx?'done':i===idx?'active':''}" onclick="showSlide(${i})"></div>`
   ).join('');
 
-  if (el) el.innerHTML = renderSlide(slide);
+  if (el) el.innerHTML = renderLegacySlide(slide);
 
   // Sync to students
   updateLessonSlide(idx);
 }
 
-function renderSlide(slide) {
+function renderLegacySlide(slide) {
   const badge = slide.badge ? `<span class="slide-week-badge">${slide.badge}</span>` : '';
   const type  = `<div class="slide-type">${slide.typeLabel || ''}</div>`;
   const title = `<div class="slide-title">${slide.title || ''}</div>`;
@@ -4886,22 +4894,7 @@ function switchSettingsTab(tab) {
 }
 
 /* ─── MEDIA MANAGER ─────────────────────────────────────────────── */
-function loadSettingsInfo() {
-  const sc = document.getElementById('settings-scenario-count');
-  const st = document.getElementById('settings-student-count');
-  if (sc) sc.textContent = STATE.scenarios.length;
-  if (st) st.textContent = STATE.allStudents.length;
-  renderVisibleScenariosList();
-
-  // Populate media scenario picker
-  const sel = document.getElementById('media-scenario-select');
-  if (sel) {
-    sel.innerHTML = '<option value="">— select scenario —</option>' +
-      STATE.scenarios.map(s =>
-        `<option value="${s.id}">${s.title} (${s.yearGroups.join(', ')})</option>`
-      ).join('');
-  }
-}
+/* loadSettingsInfo merged above */
 
 async function loadMediaWeeks() {
   const scenId = document.getElementById('media-scenario-select').value;
@@ -5820,9 +5813,9 @@ function deleteAllStudents() {
 }
 
 
-/* ─── PRESENTATION ENGINE ───────────────────────────────────────── */
 const LESSON_LABELS = {"scenario_y7_binary":["L1: What is a computer? Why binary?","L2: Counting in binary (4-bit)","L3: Binary conversions (8-bit)","L4: Introduction to Scratch","L5: Selection","L6: Variables","L7: Input and validation","L8: Designing the quiz","L9: Building the quiz","L10: Enhancing the quiz","L11: Testing and debugging","L12: Assessment"],"scenario_y8_binary":["L1: Binary Retrieval and Baseline","L2: Securing Binary Conversion (8-bit)","L3: Binary Addition (4-bit)","L4: Binary Addition (8-bit and Problem Solving)","L5: Designing Binary Quiz Questions","L6: Introduction to Python","L7: Variables and Input in Python","L8: Selection in Python","L9: Designing the Python Quiz","L10: Building the Quiz","L11: Improving and Debugging","L12: Assessment and Evaluation"],"scenario_y9_python":["L1: Binary and Binary Addition Retrieval","L2: Introduction to Hexadecimal","L3: Binary to Hexadecimal","L4: Hexadecimal to Binary","L5: RGB Colours","L6: Python Retrieval","L7: Creating Subroutines","L8: Flowchart 1: Number to Hex Digit","L9: Flowchart 2: Hex Digit to Number","L10: MOD and DIV Operators","L11: Flowchart 3: Number to Hex Value","L12: Building the Random Hexadecimal Quiz"]};
 
+/* ─── PRESENTATION ENGINE ───────────────────────────────────────── */
 let PRES = { scenarioId: null, lessonNum: null, slides: [], idx: 0 };
 
 function loadPresentLessons() {
@@ -5937,157 +5930,134 @@ function presNav(dir) {
 }
 
 function openFullscreenPresentation(slides, scenarioId, lessonNum) {
-  const labels = LESSON_LABELS[scenarioId] || [];
-  const lessonLabel = labels[lessonNum - 1] || `Lesson ${lessonNum}`;
-  const yearLabel = scenarioId === 'scenario_y7_binary' ? 'Year 7'
+  const labels    = LESSON_LABELS[scenarioId] || [];
+  const lesson    = labels[lessonNum - 1] || ('Lesson ' + lessonNum);
+  const year      = scenarioId === 'scenario_y7_binary' ? 'Year 7'
                   : scenarioId === 'scenario_y8_binary' ? 'Year 8' : 'Year 9';
 
-  function slideHtml(slide, idx, total) {
-    if (!slide) return '';
-    const allText = [slide.title, ...slide.bullets.map(b=>b.text)].join(' ');
-    const isDoNow = allText.toLowerCase().includes('do now');
-    const isBigQ  = allText.toLowerCase().includes('big question');
-    const isTitleS = idx === 0;
-    const accent = isTitleS ? '#58a6ff' : isDoNow ? '#d29922' : isBigQ ? '#a78bfa' : '#3fb950';
+  // Encode slides via base64 — completely avoids all escaping issues
+  const encoded = btoa(unescape(encodeURIComponent(JSON.stringify({slides, lesson, year}))));
 
-    let titleText = slide.title;
-    let bullets   = slide.bullets;
-    if (!titleText && bullets.length) { titleText = bullets[0].text; bullets = bullets.slice(1); }
+  // Build the fullscreen page HTML using a tagged array joined — no quotes in HTML content
+  const H = String.fromCharCode;
+  const q = H(34); // double-quote char
 
-    const sectionBullets = bullets.filter(b => b.level===0 && b.text===b.text.toUpperCase() && b.text.length<40);
-    const bodyBullets    = bullets.filter(b => !(b.level===0 && b.text===b.text.toUpperCase() && b.text.length<40));
+  const pageLines = [
+    '<!DOCTYPE html>',
+    '<html lang="en">',
+    '<head>',
+    '<meta charset="UTF-8">',
+    '<meta name="viewport" content="width=device-width,initial-scale=1">',
+    '<title>CS Learning Hub Presenter</title>',
+    '<style>',
+    '*{box-sizing:border-box;margin:0;padding:0}',
+    'body{background:#0d1117;color:#e6edf3;font-family:Segoe UI,system-ui,sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden}',
+    'header{background:#161b22;border-bottom:1px solid #30363d;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}',
+    'header h1{font-size:0.95rem;font-weight:600;color:#58a6ff;margin-bottom:2px}',
+    'header p{font-size:0.78rem;color:#8b949e}',
+    'main{flex:1;overflow-y:auto;padding:40px 60px;max-width:1100px;width:100%;margin:0 auto}',
+    'footer{background:#161b22;border-top:1px solid #30363d;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}',
+    'button{font-family:inherit;font-size:0.9rem;border-radius:8px;padding:10px 24px;cursor:pointer;border:1px solid #30363d;background:#21262d;color:#e6edf3}',
+    'button:hover{background:#30363d}',
+    'button:disabled{opacity:0.35;cursor:default}',
+    'button.p{background:#1f6feb;border-color:#1f6feb;color:#fff}',
+    'button.p:hover{background:#388bfd}',
+    '#ctr{font-family:monospace;font-size:0.85rem;color:#8b949e}',
+    '#prog{position:fixed;top:0;left:0;height:3px;background:#1f6feb;transition:width 0.3s;z-index:100}',
+    '.card{border-radius:10px;padding:28px 36px;margin-bottom:20px}',
+    '</style>',
+    '</head>',
+    '<body>',
+    '<div id="prog"></div>',
+    '<header>',
+    '  <div id="hd"></div>',
+    '  <div style="display:flex;gap:8px;align-items:center">',
+    '    <span style="font-size:0.75rem;color:#8b949e">Arrow keys to navigate &bull; F = fullscreen</span>',
+    '    <button onclick="window.close()" style="padding:6px 14px;font-size:0.8rem">&times; Close</button>',
+    '  </div>',
+    '</header>',
+    '<main id="main"></main>',
+    '<footer>',
+    '  <button id="bp" onclick="nav(-1)">&larr; Prev</button>',
+    '  <span id="ctr"></span>',
+    '  <button id="bn" class="p" onclick="nav(1)">Next &rarr;</button>',
+    '</footer>',
+    '<script>',
+    '!function(){',
+    '  var enc=document.currentScript.dataset.enc;',
+    '  var d=JSON.parse(decodeURIComponent(escape(atob(enc))));',
+    '  var S=d.slides,i=0;',
+    '  document.getElementById("hd").innerHTML="<h1>CS Learning Hub &mdash; "+d.year+"</h1><p>"+d.lesson+"</p>";',
+    '  function h(s){return String(s||"").replace(/&/g,"&amp;").replace(/</g,"&lt;").replace(/>/g,"&gt;");}',
+    '  function render(){',
+    '    var sl=S[i],tot=S.length;',
+    '    document.getElementById("ctr").textContent="Slide "+(i+1)+" of "+tot;',
+    '    document.getElementById("prog").style.width=(((i+1)/tot)*100)+"%";',
+    '    document.getElementById("bp").disabled=i===0;',
+    '    var bn=document.getElementById("bn");',
+    '    bn.disabled=i===tot-1;',
+    '    bn.textContent=i===tot-1?"Done":"Next \u2192";',
+    '    var tx=[sl.title].concat((sl.bullets||[]).map(function(b){return b.text;})).join(" ");',
+    '    var dn=tx.toLowerCase().indexOf("do now")>=0;',
+    '    var bq=tx.toLowerCase().indexOf("big question")>=0;',
+    '    var ac=i===0?"#58a6ff":dn?"#d29922":bq?"#a78bfa":"#3fb950";',
+    '    var ti=sl.title||"",bu=(sl.bullets||[]).slice();',
+    '    if(!ti&&bu.length){ti=bu.shift().text;}',
+    '    var sec=bu.filter(function(b){return b.level===0&&b.text.toUpperCase()===b.text&&b.text.length<40;});',
+    '    var bod=bu.filter(function(b){return!(b.level===0&&b.text.toUpperCase()===b.text&&b.text.length<40);});',
+    '    var sH=sec.map(function(b){',
+    '      var sp=document.createElement("span");',
+    '      sp.style.cssText="background:"+ac+";color:#0d1117;border-radius:6px;padding:5px 14px;font-size:0.85rem;font-family:monospace;text-transform:uppercase;font-weight:700;display:inline-block;margin:2px";',
+    '      sp.textContent=b.text;',
+    '      return sp.outerHTML;',
+    '    }).join("");',
+    '    var bH=bod.map(function(b){',
+    '      var li=document.createElement("li");',
+    '      li.style.cssText="display:flex;gap:10px;align-items:flex-start;padding-left:"+(b.level*24)+"px;margin-bottom:10px;list-style:none";',
+    '      var ic=document.createElement("span");',
+    '      ic.style.cssText="color:"+ac+";flex-shrink:0;margin-top:3px";',
+    '      ic.innerHTML=b.level===0?"&#9658;":"&ndash;";',
+    '      var tx2=document.createElement("span");',
+    '      tx2.style.cssText="font-size:"+(b.level===0?"1.4":"1.1")+"rem;line-height:1.5;color:#e6edf3";',
+    '      tx2.textContent=b.text;',
+    '      li.appendChild(ic);li.appendChild(tx2);',
+    '      return li.outerHTML;',
+    '    }).join("");',
+    '    var nH="";',
+    '    if(sl.notes){',
+    '      var nd=document.createElement("div");',
+    '      nd.style.cssText="margin-top:20px;padding:12px 16px;background:rgba(210,153,34,0.1);border-left:3px solid #d29922;border-radius:6px;color:#d29922;font-size:0.9rem";',
+    '      nd.innerHTML="<b>Teacher notes:</b> "+h(sl.notes);',
+    '      nH=nd.outerHTML;',
+    '    }',
+    '    var card=document.createElement("div");',
+    '    card.className="card";',
+    '    card.style.cssText="border-left:5px solid "+ac+";background:rgba(255,255,255,0.03)";',
+    '    card.innerHTML="<div style=\"font-size:2rem;font-weight:800;color:#e6edf3;line-height:1.2\">"+h(ti)+"</div>"',
+    '      +(sH?"<div style=\"margin-top:12px;display:flex;gap:8px;flex-wrap:wrap\">"+sH+"</div>":"");',
+    '    var ul=bH?"<ul style=\"list-style:none;padding:0;margin:0\">"+bH+"</ul>":"";',
+    '    document.getElementById("main").innerHTML=card.outerHTML+ul+nH;',
+    '    window.scrollTo(0,0);',
+    '  }',
+    '  function nav(d){i=Math.max(0,Math.min(S.length-1,i+d));render();}',
+    '  document.addEventListener("keydown",function(e){',
+    '    if(e.key==="ArrowRight"||e.key===" "){e.preventDefault();nav(1);}',
+    '    if(e.key==="ArrowLeft"){e.preventDefault();nav(-1);}',
+    '    if(e.key==="f"||e.key==="F"){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}',
+    '  });',
+    '  render();',
+    '}()',
+  ].join('\n');
 
-    const sHTML = sectionBullets.map(b =>
-      `<span style="background:${accent};color:#0d1117;border-radius:6px;padding:5px 14px;font-size:0.8rem;font-family:monospace;text-transform:uppercase;letter-spacing:0.06em;font-weight:700">${b.text}</span>`
-    ).join(' ');
+  // Inject encoded data into the script tag via data-enc attribute
+  const scriptTag = '<' + 'script data-enc="' + encoded + '">';
+  const page = pageLines.replace('<script>', scriptTag);
 
-    const bHTML = bodyBullets.map(b =>
-      `<li style="display:flex;gap:12px;align-items:flex-start;padding-left:${b.level*28}px;margin-bottom:10px">
-        <span style="color:${accent};flex-shrink:0;font-size:${b.level===0?'1.1':'0.9'}rem;margin-top:3px">${b.level===0?'▶':'–'}</span>
-        <span style="font-size:${b.level===0?'1.35':'1.1'}rem;line-height:1.5;color:#e6edf3">${b.text}</span>
-       </li>`
-    ).join('');
-
-    const notesH = slide.notes
-      ? `<div style="margin-top:24px;padding:14px 18px;background:rgba(210,153,34,0.1);border-left:3px solid #d29922;border-radius:6px;font-size:0.85rem;color:#d29922">
-           <strong>📝 Teacher notes:</strong> ${slide.notes}
-         </div>`
-      : '';
-
-    return `
-      <div style="border-left:5px solid ${accent};background:rgba(255,255,255,0.03);border-radius:12px;padding:28px 36px;margin-bottom:8px">
-        <div style="font-size:2rem;font-weight:800;color:#e6edf3;line-height:1.2;margin-bottom:12px">${titleText||''}</div>
-        ${sHTML ? `<div style="display:flex;gap:8px;flex-wrap:wrap;margin-bottom:16px">${sHTML}</div>` : ''}
-      </div>
-      ${bHTML ? `<ul style="list-style:none;padding:0;margin:16px 0 0">${bHTML}</ul>` : ''}
-      ${notesH}
-    `;
-  }
-
-  const slidesJs = JSON.stringify(slides).replace(/</g,'\u003c').replace(/>/g,'\u003e');
-
-  const page = `<!DOCTYPE html>
-<html lang="en">
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width,initial-scale=1">
-<title>CS Learning Hub — ${yearLabel} ${lessonLabel}</title>
-<style>
-  *{box-sizing:border-box;margin:0;padding:0}
-  body{background:#0d1117;color:#e6edf3;font-family:'Segoe UI',system-ui,sans-serif;height:100vh;display:flex;flex-direction:column;overflow:hidden}
-  #header{background:#161b22;border-bottom:1px solid #30363d;padding:12px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-  #header h1{font-size:0.95rem;font-weight:600;color:#58a6ff}
-  #header .sub{font-size:0.78rem;color:#8b949e;margin-top:2px}
-  #slide-area{flex:1;overflow-y:auto;padding:40px 60px;max-width:1100px;width:100%;margin:0 auto}
-  #footer{background:#161b22;border-top:1px solid #30363d;padding:14px 24px;display:flex;align-items:center;justify-content:space-between;flex-shrink:0}
-  .nav-btn{background:#21262d;color:#e6edf3;border:1px solid #30363d;border-radius:8px;padding:10px 24px;font-size:0.9rem;cursor:pointer;transition:background 0.15s}
-  .nav-btn:hover{background:#30363d}
-  .nav-btn:disabled{opacity:0.35;cursor:default}
-  .nav-btn.primary{background:#1f6feb;border-color:#1f6feb;color:white}
-  .nav-btn.primary:hover{background:#388bfd}
-  #counter{font-family:monospace;font-size:0.85rem;color:#8b949e}
-  #progress{position:fixed;top:0;left:0;height:3px;background:#1f6feb;transition:width 0.3s;z-index:100}
-  kbd{background:#21262d;border:1px solid #30363d;border-radius:4px;padding:2px 8px;font-size:0.75rem;color:#8b949e;margin-left:6px}
-</style>
-</head>
-<body>
-<div id="progress"></div>
-<div id="header">
-  <div>
-    <h1>📽 CS Learning Hub — ${yearLabel}</h1>
-    <div class="sub">${lessonLabel}</div>
-  </div>
-  <div style="display:flex;gap:8px;align-items:center">
-    <span style="font-size:0.75rem;color:#8b949e">← → keys to navigate</span>
-    <button class="nav-btn" onclick="window.close()" style="padding:6px 14px;font-size:0.8rem">✕ Close</button>
-  </div>
-</div>
-<div id="slide-area"></div>
-<div id="footer">
-  <button class="nav-btn" id="btn-prev" onclick="nav(-1)">← Previous</button>
-  <span id="counter">Slide 1 of ${slides.length}</span>
-  <button class="nav-btn primary" id="btn-next" onclick="nav(1)">Next →</button>
-</div>
-<script>
-const SLIDES = ${slidesJs};
-let idx = 0;
-
-function escH(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
-
-function render() {
-  const slide = SLIDES[idx];
-  const total = SLIDES.length;
-  document.getElementById('counter').textContent = 'Slide '+(idx+1)+' of '+total;
-  document.getElementById('progress').style.width = (((idx+1)/total)*100)+'%';
-  document.getElementById('btn-prev').disabled = idx === 0;
-  document.getElementById('btn-next').disabled = idx === total-1;
-  document.getElementById('btn-next').textContent = idx===total-1 ? '✓ End' : 'Next →';
-
-  const allText = [slide.title,...slide.bullets.map(b=>b.text)].join(' ');
-  const isDoNow = allText.toLowerCase().includes('do now');
-  const isBigQ  = allText.toLowerCase().includes('big question');
-  const accent  = idx===0 ? '#58a6ff' : isDoNow ? '#d29922' : isBigQ ? '#a78bfa' : '#3fb950';
-
-  let title   = slide.title;
-  let bullets = slide.bullets;
-  if (!title && bullets.length) { title=bullets[0].text; bullets=bullets.slice(1); }
-
-  const secB = bullets.filter(b=>b.level===0&&b.text===b.text.toUpperCase()&&b.text.length<40);
-  const bodB = bullets.filter(b=>!(b.level===0&&b.text===b.text.toUpperCase()&&b.text.length<40));
-
-  const secH = secB.map(b=>'<span style="background:'+accent+';color:#0d1117;border-radius:6px;padding:5px 14px;font-size:0.8rem;font-family:monospace;text-transform:uppercase;letter-spacing:0.06em;font-weight:700">'+escH(b.text)+'</span>').join(' ');
-  const bodH = bodB.map(b=>'<li style="display:flex;gap:12px;align-items:flex-start;padding-left:'+(b.level*28)+'px;margin-bottom:12px"><span style="color:'+accent+';flex-shrink:0;margin-top:3px">'+(b.level===0?'▶':'–')+'</span><span style="font-size:'+(b.level===0?'1.4':'1.1')+'rem;line-height:1.5;color:#e6edf3">'+escH(b.text)+'</span></li>').join('');
-  const notH = slide.notes ? '<div style="margin-top:24px;padding:14px 18px;background:rgba(210,153,34,0.1);border-left:3px solid #d29922;border-radius:6px;font-size:0.9rem;color:#d29922"><strong>📝 Teacher notes:</strong> '+escH(slide.notes)+'</div>' : '';
-
-  document.getElementById('slide-area').innerHTML =
-    '<div style="border-left:5px solid '+accent+';background:rgba(255,255,255,0.03);border-radius:12px;padding:28px 36px;margin-bottom:20px">'
-    +'<div style="font-size:2.2rem;font-weight:800;color:#e6edf3;line-height:1.2;margin-bottom:'+(secH?'12':'0')+'px">'+escH(title||'')+'</div>'
-    +(secH?'<div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:12px">'+secH+'</div>':'')
-    +'</div>'
-    +(bodH?'<ul style="list-style:none;padding:0;margin:0">'+bodH+'</ul>':'')
-    +notH;
-  
-  window.scrollTo(0,0);
-}
-
-function nav(d){
-  idx=Math.max(0,Math.min(SLIDES.length-1,idx+d));
-  render();
-}
-
-document.addEventListener('keydown',e=>{
-  if(e.key==='ArrowRight'||e.key==='ArrowDown'||e.key===' '){e.preventDefault();nav(1);}
-  if(e.key==='ArrowLeft'||e.key==='ArrowUp'){e.preventDefault();nav(-1);}
-  if(e.key==='f'||e.key==='F'){document.documentElement.requestFullscreen&&document.documentElement.requestFullscreen();}
-});
-
-render();
-</script>
-</body></html>`;
-
-  const blob = new Blob([page], {type:'text/html'});
+  const blob = new Blob([page], {type: 'text/html'});
   window.open(URL.createObjectURL(blob), '_blank');
 }
+
+function escH(s){return String(s||'').replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;').replace(/"/g,'&quot;');}
 
 function populateBoardClassFilter() {
   const sel = document.getElementById('board-filter-class');
