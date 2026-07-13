@@ -2876,7 +2876,7 @@ body.teacher-theme .stuck-col { background: rgba(210,153,34,0.12) !important; }
         <select id="pres-lesson" style="width:280px">
           <option value="">Select lesson…</option>
         </select>
-        <button class="btn btn-primary" onclick="launchLegacyPresentation()">🖥 Present Fullscreen</button>
+        <button class="btn btn-primary" onclick="launchPresentation('fullscreen')">🖥 Present Fullscreen</button>
         <button class="btn btn-secondary" onclick="launchPresentation('inline')">▶ Preview Here</button>
       </div>
 
@@ -3531,6 +3531,8 @@ function _renderHubGrid() {
 
 /* ─── SCENARIO INTRO ─────────────────────────────────────────────── */
 function openScenarioIntro(scenarioId) {
+  // Sync week locks fresh from localStorage before opening
+  const _db = lsGet(); STATE.currentWeeks = _db.currentWeeks || STATE.currentWeeks || {};
   const s = STATE.scenarios.find(x => x.id === scenarioId);
   if (!s) return;
   STATE.currentScenario = s;
@@ -3609,12 +3611,28 @@ function renderTask(idx) {
   const t = s.tasks[idx];
   if (!t) return;
 
-  // Enforce week lock — redirect to last unlocked task if needed
-  if (!isTaskUnlocked(s.id, t.week || 1)) {
+  // Enforce week lock — show locked message if lesson not yet released
+  const taskWeek = t.week || 1;
+  if (!isTaskUnlocked(s.id, taskWeek)) {
     const unlockedWeek = getUnlockedWeek(s.id);
+    // Show lock screen instead of task
+    const taskArea = document.getElementById('task-content-area') || document.getElementById('task-area');
+    const lockMsg  = `<div style="text-align:center;padding:60px 24px">
+      <div style="font-size:3rem;margin-bottom:16px">🔒</div>
+      <div style="font-size:1.2rem;font-weight:700;color:var(--text);margin-bottom:8px">Lesson ${taskWeek} is locked</div>
+      <div style="font-size:0.9rem;color:var(--text2);max-width:360px;margin:0 auto">
+        Your teacher has unlocked up to <strong>Lesson ${unlockedWeek}</strong>.<br>
+        Come back when the next lesson is released.
+      </div>
+    </div>`;
+    // Redirect to last unlocked task instead
     const lastUnlocked = s.tasks.reduce((best, pt, i) =>
       (pt.week || 1) <= unlockedWeek ? i : best, 0);
     if (lastUnlocked !== idx) { renderTask(lastUnlocked); return; }
+    // If somehow we're on the right task but it's locked, show lock screen
+    if (taskArea) { taskArea.innerHTML = lockMsg; return; }
+    alert(`Lesson ${taskWeek} is not yet available. Your teacher has unlocked up to Lesson ${unlockedWeek}.`);
+    return;
   }
 
   STATE.currentTaskIdx = idx;
@@ -3630,8 +3648,8 @@ function renderTask(idx) {
   }
 
   // Load media for this week in background
-  const taskWeek = t.week || 1;
-  getTaskMedia(s.id, taskWeek).then(mediaItems => {
+  const taskWeekMedia = t.week || 1;
+  getTaskMedia(s.id, taskWeekMedia).then(mediaItems => {
     const mediaBar = document.getElementById('task-media-bar');
     if (mediaBar) mediaBar.innerHTML = renderTaskMediaBar(mediaItems);
   }).catch(() => {});
@@ -3839,6 +3857,11 @@ function renderReview() {
     const maxWeek  = Math.max(...s.tasks.map(t => t.week || 1));
     const unlocked = getUnlockedWeek(s.id);
     const week     = Math.min(maxWeek, unlocked);
+    // Double-check the specific week is unlocked
+    if (week > unlocked) {
+      alert(`Week ${week} quiz is not yet available. Your teacher has unlocked up to Week ${unlocked}.`);
+      return;
+    }
     const hasQuiz  = !!(QUIZ_BANK[s.id] || {})[String(week)];
     qBtnWrap.style.display = hasQuiz ? 'block' : 'none';
   }
@@ -5323,9 +5346,11 @@ function restoreSplit() {
 
 /* ─── WEEK LOCK HELPERS ──────────────────────────────────────────── */
 function getUnlockedWeek(scenarioId) {
-  // Returns the highest week number students can access (1-based)
-  // If teacher hasn't set it, default to week 1 only
-  const val = STATE.currentWeeks[scenarioId];
+  // Always read fresh from localStorage so teacher changes take effect immediately
+  const db  = lsGet();
+  const cw  = db.currentWeeks || {};
+  // Also check STATE as fallback
+  const val = cw[scenarioId] !== undefined ? cw[scenarioId] : STATE.currentWeeks[scenarioId];
   return val !== undefined ? parseInt(val) : 1;
 }
 
@@ -5335,7 +5360,10 @@ function isTaskUnlocked(scenarioId, taskWeek) {
 
 async function setScenarioWeek(scenarioId, week) {
   STATE.currentWeeks[scenarioId] = week;
+  // Save to localStorage immediately (saveBin calls lsSet which is synchronous)
+  saveBin({ currentWeeks: STATE.currentWeeks });
   try {
+    // Also try any async operations
     await saveBin({ currentWeeks: STATE.currentWeeks });
   } catch(e) {
     console.warn('Failed to save week setting:', e);
@@ -5912,7 +5940,7 @@ function launchPresentation(mode) {
     return;
   }
   
-  // Fullscreen mode — open in new tab
+  // Fullscreen — open in new tab
   openFullscreenPresentation(slides, scenarioId, parseInt(lessonNum));
 }
 
